@@ -1,4 +1,8 @@
 class Game::Create < Trailblazer::Operation
+  include Model
+
+  model Game, :create
+
   contract do
     property :title_ja, validates: { presence: true }
     property :title_en
@@ -35,10 +39,21 @@ class Game::Create < Trailblazer::Operation
   end
 
   def process(params)
-    @model = Game.new
-
-    validate(params[:game], @model) do |f|
-      f.save
+    validate(params[:game]) do |form|
+      form.save
     end
+  end
+end
+
+class Game::Update < Game::Create
+  action :update
+end
+
+class Game::Destroy < Trailblazer::Operation
+  def process(params)
+    return invalid! unless params[:id]
+
+    Game.find(params[:id]).destroy
+    self
   end
 end
