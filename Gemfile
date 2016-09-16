@@ -52,6 +52,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'cells'
 gem 'ridgepole'
 gem 'ridgepole-rails', github: 'sakuro/ridgepole-rails'
+gem 'slim-rails'
 gem 'trailblazer'
 gem 'trailblazer-rails'
 
