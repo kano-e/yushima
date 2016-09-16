@@ -1,12 +1,18 @@
 # == Route Map
 #
-# You don't have any routes defined!
-#
-# Please add some routes in config/routes.rb.
-#
-# For more information about routes, see the Rails guide: http://guides.rubyonrails.org/routing.html.
+#    Prefix Verb   URI Pattern               Controller#Action
+#     games GET    /games(.:format)          games#index
+#           POST   /games(.:format)          games#create
+#  new_game GET    /games/new(.:format)      games#new
+# edit_game GET    /games/:id/edit(.:format) games#edit
+#      game GET    /games/:id(.:format)      games#show
+#           PATCH  /games/:id(.:format)      games#update
+#           PUT    /games/:id(.:format)      games#update
+#           DELETE /games/:id(.:format)      games#destroy
 #
 
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :games
 end
