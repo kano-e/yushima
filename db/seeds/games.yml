@@ -1,0 +1,529 @@
+---
+- :title_ja: アセンション〜「神を屠りし者」の伝承〜
+  :title_en: 'Ascension: Chronicle of The Godslayer'
+  :min_players: '2'
+  :max_players: '4'
+  :min_minutes: '30'
+  :max_minutes: '30'
+- :title_ja: アベ・カエサル
+  :title_en: Ave Caesar
+  :min_players: '3'
+  :max_players: '6'
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: バルバロッサ
+  :title_en: Barbarossa
+  :min_players: '3'
+  :max_players: '6'
+  :min_minutes: '60'
+  :max_minutes: '60'
+- :title_ja: バトルライン
+  :title_en: Battle Line
+  :min_players: '2'
+  :max_players: '2'
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: ベストフレンドS
+  :title_en: BestFriendS
+  :min_players: '4'
+  :max_players: '6'
+  :min_minutes: '30'
+  :max_minutes: '60'
+- :title_ja: ブロックス デュオ
+  :title_en: Blokus duo
+  :min_players: '2'
+  :max_players: '2'
+  :min_minutes: '15'
+  :max_minutes: '15'
+- :title_ja: ボツワナ
+  :title_en: botswana
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: カルカソンヌ
+  :title_en: carcassonne
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: カルカソンヌ メイフラワー号
+  :title_en: carcassonne mayflower
+  :min_players: '2'
+  :max_players: '5'
+  :min_minutes: '45'
+  :max_minutes: 
+- :title_ja: カタン
+  :title_en: Catan
+  :min_players: '2'
+  :max_players: '4'
+  :min_minutes: '60'
+  :max_minutes: '120'
+- :title_ja: チャオチャオ
+  :title_en: Ciao, Ciao...
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: コーディングギア
+  :title_en: coding gear
+  :min_players: '2'
+  :max_players: '2'
+  :min_minutes: '15'
+  :max_minutes: '20'
+- :title_ja: コロレット
+  :title_en: Coloretto
+  :min_players: '2'
+  :max_players: '5'
+  :min_minutes: '30'
+  :max_minutes: '30'
+- :title_ja: クー
+  :title_en: coup
+  :min_players: '3'
+  :max_players: '6'
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: クク21
+  :title_en: Cucco21
+  :min_players: '5'
+  :max_players: '12'
+  :min_minutes: '30'
+  :max_minutes: '30'
+- :title_ja: ワンナイト人狼
+  :title_en: Day Night Werewolf
+  :min_players: '3'
+  :max_players: '7'
+  :min_minutes: '10'
+  :max_minutes: '10'
+- :title_ja: ワンナイト人狼
+  :title_en: day night werewolf
+  :min_players: '3'
+  :max_players: '7'
+  :min_minutes: '10'
+  :max_minutes: 
+- :title_ja: ワンナイト人狼 モンスターver
+  :title_en: Day Night Werewolf Monster ver
+  :min_players: '3'
+  :max_players: '5'
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: 海底探険
+  :title_en: deep see adventure
+  :min_players: '3'
+  :max_players: '6'
+  :min_minutes: '30'
+  :max_minutes: '30'
+- :title_ja: ダイヤモンド
+  :title_en: Diamant
+  :min_players: '3'
+  :max_players: '8'
+  :min_minutes: '20'
+  :max_minutes: '20'
+- :title_ja: アンドールの伝説
+  :title_en: 'Die Legenden von Andor '
+  :min_players: '1'
+  :max_players: '4'
+  :min_minutes: '60'
+  :max_minutes: '60'
+- :title_ja: ディクシット
+  :title_en: dixit
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: ドミニオン
+  :title_en: DOMINION
+  :min_players: '2'
+  :max_players: '4'
+  :min_minutes: '30'
+  :max_minutes: '30'
+- :title_ja: ドミニオン陰謀編
+  :title_en: DOMINION Intrigue
+  :min_players: '2'
+  :max_players: '4'
+  :min_minutes: '30'
+  :max_minutes: '30'
+- :title_ja: ドミニオン:異郷
+  :title_en: Dominion:Hinterlands
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: ドラスレ
+  :title_en: DORASURE
+  :min_players: '2'
+  :max_players: '5'
+  :min_minutes: '30'
+  :max_minutes: '40'
+- :title_ja: ダンジョン オブ マンダム
+  :title_en: dungeon of mandom
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: 曖昧フェイバリットシングス
+  :title_en: Eye My Favorite Things
+  :min_players: '3'
+  :max_players: '5'
+  :min_minutes: '30'
+  :max_minutes: '30'
+- :title_ja: 大きさ比べ
+  :title_en: Fuchs & fertig
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: ガイスター
+  :title_en: Geister
+  :min_players: '2'
+  :max_players: '2'
+  :min_minutes: '10'
+  :max_minutes: '20'
+- :title_ja: ゲシェンク
+  :title_en: Geschenkt
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: ゲット・ラッキー キルDr.ラッキー
+  :title_en: get lucky
+  :min_players: '2'
+  :max_players: '6'
+  :min_minutes: '20'
+  :max_minutes: 
+- :title_ja: グリモリア
+  :title_en: Grimoire
+  :min_players: '2'
+  :max_players: '5'
+  :min_minutes: '30'
+  :max_minutes: 
+- :title_ja: ギロチン
+  :title_en: Guillotine
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: グースカパースカ
+  :title_en: Gusuka Pasuka
+  :min_players: '2'
+  :max_players: '2'
+  :min_minutes: '10'
+  :max_minutes: '10'
+- :title_ja: ハートオブクラウン
+  :title_en: Heart of Crown
+  :min_players: '2'
+  :max_players: '4'
+  :min_minutes: '20'
+  :max_minutes: '40'
+- :title_ja: ヘックメック
+  :title_en: Heckmeck am Bratwurmeck
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: ヒーローカンパニー
+  :title_en: Hero company
+  :min_players: '3'
+  :max_players: '5'
+  :min_minutes: '30'
+  :max_minutes: '30'
+- :title_ja: 卑怯なコウモリ
+  :title_en: Hikyou na koumori
+  :min_players: '4'
+  :max_players: '7'
+  :min_minutes: '20'
+  :max_minutes: '20'
+- :title_ja: アイム・ザ・ボス！ カードゲーム
+  :title_en: I'm the Boss! the Card Game
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: 心臓発作にならないための10の方法
+  :title_en: Infarkt
+  :min_players: '2'
+  :max_players: '5'
+  :min_minutes: '60'
+  :max_minutes: '60'
+- :title_ja: スカイアイランド
+  :title_en: Isle of Skye
+  :min_players: 
+  :max_players: '5'
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: テーベ
+  :title_en: Jenseits von Theben
+  :min_players: '2'
+  :max_players: '4'
+  :min_minutes: '50'
+  :max_minutes: '50'
+- :title_ja: 人狼 JIN-ROU
+  :title_en: jin-rou
+  :min_players: '4'
+  :max_players: '20'
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: カミムスビ
+  :title_en: Kamimusubi
+  :min_players: '2'
+  :max_players: '2'
+  :min_minutes: '5'
+  :max_minutes: '10'
+- :title_ja: カレンと海賊の島
+  :title_en: karen and pirate island
+  :min_players: '1'
+  :max_players: '1'
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: キング・オブ・ニューヨーク
+  :title_en: King of New York
+  :min_players: 
+  :max_players: '6'
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: King's Court
+  :title_en: King's Court
+  :min_players: '2'
+  :max_players: '8'
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: 小早川
+  :title_en: kobayakawa
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: ころころシアム
+  :title_en: KORO COLOSSEUM
+  :min_players: '2'
+  :max_players: '4'
+  :min_minutes: '10'
+  :max_minutes: '20'
+- :title_ja: LNoE
+  :title_en: LAST NIGHT on EARTH
+  :min_players: '2'
+  :max_players: '6'
+  :min_minutes: '60'
+  :max_minutes: '90'
+- :title_ja: ラブレター
+  :title_en: Love Letter
+  :min_players: '2'
+  :max_players: '4'
+  :min_minutes: '5'
+  :max_minutes: '10'
+- :title_ja: タブラの狼
+  :title_en: Lupus in Tabula
+  :min_players: '9'
+  :max_players: '25'
+  :min_minutes: '20'
+  :max_minutes: '45'
+- :title_ja: "マジック：ザ\b・ギャザリング"
+  :title_en: 'MAGIC: THE GATHERING'
+  :min_players: '2'
+  :max_players: '2'
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: マンモス
+  :title_en: mammuz
+  :min_players: '3'
+  :max_players: '7'
+  :min_minutes: '15'
+  :max_minutes: '15'
+- :title_ja: メディチ対ストロッツィ
+  :title_en: Medici vs Strozzi
+  :min_players: '2'
+  :max_players: '2'
+  :min_minutes: '30'
+  :max_minutes: '30'
+- :title_ja: モダンアート
+  :title_en: Modern Art
+  :min_players: '3'
+  :max_players: '5'
+  :min_minutes: '45'
+  :max_minutes: '60'
+- :title_ja: MOW
+  :title_en: MOW
+  :min_players: '2'
+  :max_players: '10'
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: マンチキン
+  :title_en: munchkin
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: ミステリウム
+  :title_en: mysterium
+  :min_players: '2'
+  :max_players: '7'
+  :min_minutes: '40'
+  :max_minutes: '60'
+- :title_ja: ナショナルエコノミー
+  :title_en: national economy
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: あやつり人形
+  :title_en: Ohne Furcht und Adel
+  :min_players: '2'
+  :max_players: '8'
+  :min_minutes: '60'
+  :max_minutes: '60'
+- :title_ja: ワンス・アポン・ア・タイム
+  :title_en: once upon a time
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: オニリム
+  :title_en: Onirim
+  :min_players: '1'
+  :max_players: '2'
+  :min_minutes: '15'
+  :max_minutes: '15'
+- :title_ja: パンデミック
+  :title_en: PANDEMIC
+  :min_players: '2'
+  :max_players: '4'
+  :min_minutes: '45'
+  :max_minutes: '45'
+- :title_ja: お邪魔者
+  :title_en: Saboteur
+  :min_players: '3'
+  :max_players: '10'
+  :min_minutes: '30'
+  :max_minutes: '30'
+- :title_ja: 士魂 - サムライスピリット
+  :title_en: Samurai Spirit
+  :min_players: '1'
+  :max_players: '7'
+  :min_minutes: '25'
+  :max_minutes: '40'
+- :title_ja: さるやま
+  :title_en: Saruyama
+  :min_players: '2'
+  :max_players: '6'
+  :min_minutes: '15'
+  :max_minutes: '15'
+- :title_ja: スコットランドヤード
+  :title_en: Scotland yard
+  :min_players: '3'
+  :max_players: '6'
+  :min_minutes: '45'
+  :max_minutes: '45'
+- :title_ja: スクラブル
+  :title_en: scrable
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: シェフィ
+  :title_en: Shephy
+  :min_players: '1'
+  :max_players: '1'
+  :min_minutes: '15'
+  :max_minutes: '15'
+- :title_ja: スペースアラート
+  :title_en: space alert
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: ストーンエイジ
+  :title_en: Stone Age
+  :min_players: '2'
+  :max_players: '4'
+  :min_minutes: '60'
+  :max_minutes: '120'
+- :title_ja: テレストレーション
+  :title_en: Telestrations
+  :min_players: '4'
+  :max_players: '8'
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: レッドドラゴン・イン
+  :title_en: the red dragon inn
+  :min_players: '2'
+  :max_players: '4'
+  :min_minutes: '30'
+  :max_minutes: '60'
+- :title_ja: ミラーズホロウの人狼
+  :title_en: The Werewolves of Millers Hollow
+  :min_players: '8'
+  :max_players: '18'
+  :min_minutes: '20'
+  :max_minutes: '30'
+- :title_ja: ワニに乗る？
+  :title_en: TIER auf TIER
+  :min_players: '2'
+  :max_players: '4'
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: うどんぜすちゃー
+  :title_en: Udon gesture
+  :min_players: '4'
+  :max_players: '8'
+  :min_minutes: '60'
+  :max_minutes: '60'
+- :title_ja: 王への請願
+  :title_en: Um Krone und Kragen
+  :min_players: '2'
+  :max_players: '5'
+  :min_minutes: '20'
+  :max_minutes: '20'
+- :title_ja: 渡る世間はナベばかり
+  :title_en: Wata-Nabe
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: お先に失礼します
+  :title_en: Who is going to do the dishes?
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: ワードバスケット
+  :title_en: Word Basket
+  :min_players: '2'
+  :max_players: '8'
+  :min_minutes: '10'
+  :max_minutes: '10'
+- :title_ja: 藪の中
+  :title_en: Yabu no naka
+  :min_players: '3'
+  :max_players: '4'
+  :min_minutes: '20'
+  :max_minutes: '20'
+- :title_ja: 大人が楽しい紙ペンゲーム30選
+  :title_en: 
+  :min_players: 
+  :max_players: 
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: 斬-サムライソード
+  :title_en: ZAN! SAMURAI SWORD
+  :min_players: '3'
+  :max_players: '7'
+  :min_minutes: '20'
+  :max_minutes: '40'
+- :title_ja: 9マス将棋
+  :title_en: 
+  :min_players: '2'
+  :max_players: '2'
+  :min_minutes: 
+  :max_minutes: 
+- :title_ja: 頂上を目指せ
+  :title_en: Gipfelsturmer
+  :min_players: '2'
+  :max_players: '4'
+  :min_minutes: '30'
+  :max_minutes: 
+- :title_ja: マルコポーロの旅路
+  :title_en: Auf den Spuren von Marco Polo
+  :min_players: '2'
+  :max_players: '4'
+  :min_minutes: '60'
+  :max_minutes: 
