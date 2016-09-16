@@ -51,3 +51,17 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'ridgepole'
 gem 'ridgepole-rails', github: 'sakuro/ridgepole-rails'
+
+group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.5.0'
+end
+
+group :development do
+  gem 'annotate'
+  gem 'guard-rspec', '~> 4.6', require: false
+  gem 'kramdown', require: false
+  gem 'yard', require: false
+end
