@@ -6,17 +6,17 @@ class GamesController < ApplicationController
 
   # GET /games/1
   def show
-    present Comment::Update
+    present Game::Update
   end
 
   # GET /games/new
   def new
-    form Comment::Create
+    form Game::Create
   end
 
   # GET /games/1/edit
   def edit
-    form Comment::Update
+    form Game::Update
   end
 
   # POST /games
