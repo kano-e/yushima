@@ -1,1 +1,10 @@
-
+create_table "games", force: :cascade do |t|
+  t.datetime "created_at",  null: false
+  t.datetime "updated_at",  null: false
+  t.string   "title_ja",    null: false
+  t.string   "title_en"
+  t.integer  "min_players"
+  t.integer  "max_players"
+  t.integer  "min_minutes"
+  t.integer  "max_minutes"
+end
