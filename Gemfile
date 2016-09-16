@@ -49,8 +49,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # ↓ Add gems below this line.
 
+gem 'cells'
 gem 'ridgepole'
 gem 'ridgepole-rails', github: 'sakuro/ridgepole-rails'
+gem 'trailblazer'
+gem 'trailblazer-rails'
 
 group :development, :test do
   gem 'factory_girl_rails'
