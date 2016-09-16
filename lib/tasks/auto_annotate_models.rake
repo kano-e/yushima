@@ -6,7 +6,7 @@ if Rails.env.development?
     # You can override any of these by setting an environment variable of the
     # same name.
     Annotate.set_defaults(
-      'routes'                  => 'false',
+      'routes'                  => 'true',
       'position_in_routes'      => 'before',
       'position_in_class'       => 'before',
       'position_in_test'        => 'before',
@@ -33,9 +33,9 @@ if Rails.env.development?
       'ignore_unknown_models'   => 'false',
       'hide_limit_column_types' => 'integer,boolean',
       'skip_on_db_migrate'      => 'false',
-      'format_bare'             => 'true',
+      'format_bare'             => 'false',
       'format_rdoc'             => 'false',
-      'format_markdown'         => 'false',
+      'format_markdown'         => 'true',
       'sort'                    => 'false',
       'force'                   => 'false',
       'trace'                   => 'false',
