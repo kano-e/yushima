@@ -1,6 +1,4 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy]
-
   # GET /games
   def index
     @games = Game.all
@@ -8,51 +6,43 @@ class GamesController < ApplicationController
 
   # GET /games/1
   def show
+    present Comment::Update
   end
 
   # GET /games/new
   def new
-    @game = Game.new
+    form Comment::Create
   end
 
   # GET /games/1/edit
   def edit
+    form Comment::Update
   end
 
   # POST /games
   def create
-    @game = Game.new(game_params)
-
-    if @game.save
-      redirect_to @game, notice: 'Game was successfully created.'
-    else
-      render :new
+    run Game::Create do |op|
+      return redirect_to(op.model, notice: 'Game was successfully created.')
     end
+
+    render :new
   end
 
   # PATCH/PUT /games/1
   def update
-    if @game.update(game_params)
-      redirect_to @game, notice: 'Game was successfully updated.'
-    else
-      render :edit
+    run Game::Update do |op|
+      return redirect_to(op.model, notice: 'Game was successfully updated.')
     end
+
+    render :edit
   end
 
   # DELETE /games/1
   def destroy
-    @game.destroy
-    redirect_to games_url, notice: 'Game was successfully destroyed.'
+    run Game::Update do |op|
+      return redirect_to(games_path, notice: 'Game was successfully destroyed.')
+    end
+
+    redirect_back(fallback_location: game_path(params[:id]))
   end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_game
-      @game = Game.find(params[:id])
-    end
-
-    # Only allow a trusted parameter "white list" through.
-    def game_params
-      params.fetch(:game, {})
-    end
 end
