@@ -5,6 +5,7 @@ class Activity::Create < Trailblazer::Operation
 
   contract do
     property :day, validates: { presence: true }
+    validates_uniqueness_of :day
   end
 
   def process(params)
