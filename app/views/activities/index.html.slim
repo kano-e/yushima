@@ -1,0 +1,21 @@
+h1 Listing activities
+
+table
+  thead
+    tr
+      th Day
+      th
+      th
+      th
+
+  tbody
+    - @activities.each do |activity|
+      tr
+        td = activity.day
+        td = link_to 'Show', activity
+        td = link_to 'Edit', edit_activity_path(activity)
+        td = link_to 'Destroy', activity, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Activity', new_activity_path
