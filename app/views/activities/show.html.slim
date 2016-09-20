@@ -2,6 +2,8 @@ p#notice = notice
 
 div = concept('activity/cell', @model).()
 
+def = render partial: 'activity_comments/form', locals: { form: @activity_comment_form, model: @activity_comment_form.model }
+
 = link_to 'Edit', edit_activity_path(@model)
 '|
 = link_to 'Back', activities_path

@@ -21,13 +21,11 @@ class ActivityCommentsController < ApplicationController
 
   # POST /activity_comments
   def create
-    @activity_comment = ActivityComment.new(activity_comment_params)
-
-    if @activity_comment.save
-      redirect_to @activity_comment, notice: 'Activity comment was successfully created.'
-    else
-      render :new
+    run ActivityComment::Create do |op|
+      return redirect_to(op.model.activity, notice: 'Activity was successfully created.')
     end
+
+    render :new
   end
 
   # PATCH/PUT /activity_comments/1

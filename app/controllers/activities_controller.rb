@@ -7,6 +7,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/1
   def show
     present Activity::Update
+    @activity_comment_form = ActivityComment::Create.present(params)
   end
 
   # GET /activities/new
