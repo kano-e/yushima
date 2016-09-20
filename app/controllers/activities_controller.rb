@@ -1,6 +1,4 @@
 class ActivitiesController < ApplicationController
-  before_action :set_activity, only: [:show, :edit, :update, :destroy]
-
   # GET /activities
   def index
     @activities = Activity.all
@@ -8,51 +6,43 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/1
   def show
+    present Activity::Update
   end
 
   # GET /activities/new
   def new
-    @activity = Activity.new
+    form Activity::Create
   end
 
   # GET /activities/1/edit
   def edit
+    form Activity::Update
   end
 
   # POST /activities
   def create
-    @activity = Activity.new(activity_params)
-
-    if @activity.save
-      redirect_to @activity, notice: 'Activity was successfully created.'
-    else
-      render :new
+    run Activity::Create do |op|
+      return redirect_to(op.model, notice: 'Activity was successfully created.')
     end
+
+    render :new
   end
 
   # PATCH/PUT /activities/1
   def update
-    if @activity.update(activity_params)
-      redirect_to @activity, notice: 'Activity was successfully updated.'
-    else
-      render :edit
+    run Activity::Create do |op|
+      return redirect_to(op.model, notice: 'Activity was successfully updated.')
     end
+
+    render :edit
   end
 
   # DELETE /activities/1
   def destroy
-    @activity.destroy
-    redirect_to activities_url, notice: 'Activity was successfully destroyed.'
+    run Game::Destroy do |op|
+      return redirect_to(activities_path, notice: 'Activity was successfully destroyed.')
+    end
+
+    redirect_back(fallback_location: game_path(params[:id]))
   end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_activity
-      @activity = Activity.find(params[:id])
-    end
-
-    # Only allow a trusted parameter "white list" through.
-    def activity_params
-      params.require(:activity).permit(:day)
-    end
 end

@@ -39,7 +39,7 @@ class GamesController < ApplicationController
 
   # DELETE /games/1
   def destroy
-    run Game::Update do |op|
+    run Game::Destroy do |op|
       return redirect_to(games_path, notice: 'Game was successfully destroyed.')
     end
 
