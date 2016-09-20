@@ -1,0 +1,16 @@
+h1 Listing games
+
+table
+  thead
+    tr
+      th Title
+      th Title en
+      th Number of Players
+      th Playing Time
+      th
+      th
+      th
+
+  tbody = concept('game/cell', collection: @games).(:index)
+
+= link_to 'New Game', new_game_path
