@@ -18,4 +18,5 @@
 #
 
 class Activity < ApplicationRecord
+  has_many :activity_comments
 end
