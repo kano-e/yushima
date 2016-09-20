@@ -7,6 +7,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/1
   def show
     present Activity::Update
+    @activity_comments = @model.activity_comments.order(created_at: :desc).all
     @activity_comment_form = ActivityComment::Create.present(params)
   end
 
