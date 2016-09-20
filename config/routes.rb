@@ -24,4 +24,6 @@ Rails.application.routes.draw do
 
   resources :activities
   resources :games
+
+  root to: 'home#index'
 end
