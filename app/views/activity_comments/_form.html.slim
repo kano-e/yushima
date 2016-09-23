@@ -1,0 +1,19 @@
+= form_for model, url: activity_activity_comments_path(activity_id: model.activity_id) do |f|
+  - if form.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(form.errors.count, "error")} prohibited this form from being saved:"
+      ul
+        - form.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :game
+    = f.collection_select :game_id, *form.games, include_blank: true
+  .field
+    = f.label :photo
+    = f.file_field :photo
+    = f.hidden_field :avatar_cache
+  .field
+    = f.label :detail
+    = f.text_field :detail
+  .actions = f.submit

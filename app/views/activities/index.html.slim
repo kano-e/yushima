@@ -1,0 +1,13 @@
+h1 Listing activities
+
+table
+  thead
+    tr
+      th Day
+      th
+      th
+      th
+
+  tbody = concept('activity/cell', collection: @activities).(:index)
+
+= link_to 'New Activity', new_activity_path

@@ -1,0 +1,27 @@
+h1 Listing activity_comments
+
+table
+  thead
+    tr
+      th Activity
+      th Game
+      th Photo
+      th Detail
+      th
+      th
+      th
+
+  tbody
+    - @activity_comments.each do |activity_comment|
+      tr
+        td = activity_comment.activity
+        td = activity_comment.game
+        td = activity_comment.photo
+        td = activity_comment.detail
+        td = link_to 'Show', activity_comment
+        td = link_to 'Edit', edit_activity_comment_path(activity_comment)
+        td = link_to 'Destroy', activity_comment, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Activity comment', new_activity_comment_path

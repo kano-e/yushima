@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Activity:
+  = @activity_comment.activity
+p
+  strong Game:
+  = @activity_comment.game
+p
+  strong Photo:
+  = @activity_comment.photo
+p
+  strong Detail:
+  = @activity_comment.detail
+
+= link_to 'Edit', edit_activity_comment_path(@activity_comment)
+'|
+= link_to 'Back', activity_comments_path

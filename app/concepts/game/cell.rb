@@ -25,4 +25,8 @@ class Game::Cell < Cell::ViewModel
     return '〜 %d (minutes)' % [max_minutes] if max_minutes
     nil
   end
+
+  def show_link
+    link_to 'Show', model
+  end
 end
