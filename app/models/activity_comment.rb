@@ -27,7 +27,7 @@
 
 class ActivityComment < ApplicationRecord
   belongs_to :activity
-  belongs_to :game
+  belongs_to :game, optional: true
 
   attr_accessor :avatar_cache
 

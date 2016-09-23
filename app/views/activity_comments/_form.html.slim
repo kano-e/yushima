@@ -8,7 +8,7 @@
 
   .field
     = f.label :game
-    = f.collection_select :game_id, *form.games
+    = f.collection_select :game_id, *form.games, include_blank: true
   .field
     = f.label :photo
     = f.file_field :photo
