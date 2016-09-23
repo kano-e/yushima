@@ -31,3 +31,14 @@ class ActivityComment::Create < ActivityComment::OperationBase
     end
   end
 end
+
+class ActivityComment::Destroy < Trailblazer::Operation
+  def process(params)
+    return invalid! unless params[:id]
+
+    model = ActivityComment.find(params[:id])
+    model.remove_photo!
+    model.destroy
+    self
+  end
+end
