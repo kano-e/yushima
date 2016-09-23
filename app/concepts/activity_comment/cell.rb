@@ -10,7 +10,12 @@ class ActivityComment::Cell < Cell::ViewModel
   end
 
   def show_photo
-    return img_tag(photo) if photo.present?
+    return image_tag(photo.url) if photo.present?
+    'No Photo'
+  end
+
+  def show_thumb
+    return image_tag(photo.url(:thumbnail)) if photo.present?
     'No Photo'
   end
 
