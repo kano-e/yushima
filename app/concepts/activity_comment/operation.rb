@@ -7,7 +7,6 @@ class ActivityComment::OperationBase < Trailblazer::Operation
     property :game_id
     property :photo
     property :detail
-
   end
 
   def games
@@ -16,6 +15,7 @@ class ActivityComment::OperationBase < Trailblazer::Operation
 
   def process(params)
     validate(params[:activity_comment]) do |form|
+      model.public_str ||= SecureRandom.urlsafe_base64
       form.save
     end
   end
