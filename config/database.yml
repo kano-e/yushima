@@ -80,6 +80,3 @@ test:
 #
 production:
   <<: *default
-  database: yushima_production
-  username: yushima
-  password: <%= ENV['YUSHIMA_DATABASE_PASSWORD'] %>
