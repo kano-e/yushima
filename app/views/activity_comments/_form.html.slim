@@ -11,7 +11,8 @@
     = f.collection_select :game_id, *form.games
   .field
     = f.label :photo
-    = f.text_field :photo
+    = f.file_field :photo
+    = f.hidden_field :avatar_cache
   .field
     = f.label :detail
     = f.text_field :detail

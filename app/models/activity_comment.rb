@@ -28,4 +28,8 @@
 class ActivityComment < ApplicationRecord
   belongs_to :activity
   belongs_to :game
+
+  attr_accessor :avatar_cache
+
+  mount_uploader :photo, PhotoUploader
 end
