@@ -13,6 +13,7 @@
 # **`game_id`**      | `integer`          |
 # **`photo`**        | `string`           |
 # **`detail`**       | `string`           |
+# **`public_str`**   | `string`           | `not null`
 #
 # ### Indexes
 #
@@ -20,6 +21,8 @@
 #     * **`activity_id`**
 # * `index_activity_comments_on_game_id`:
 #     * **`game_id`**
+# * `index_activity_comments_on_public_str` (_unique_):
+#     * **`public_str`**
 #
 
 FactoryGirl.define do

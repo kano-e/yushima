@@ -12,8 +12,10 @@ create_table "activity_comments", force: :cascade do |t|
   t.integer  "game_id"
   t.string   "photo"
   t.string   "detail"
+  t.string   "public_str",  null: false
   t.index ["activity_id"], name: "index_activity_comments_on_activity_id", using: :btree
   t.index ["game_id"], name: "index_activity_comments_on_game_id", using: :btree
+  t.index ["public_str"], name: "index_activity_comments_on_public_str", unique: true, using: :btree
 end
 
 create_table "games", force: :cascade do |t|
