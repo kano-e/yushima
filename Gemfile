@@ -49,6 +49,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # ↓ Add gems below this line.
 
+gem 'bulma-rails', '~> 0.1.2'
 gem 'carrierwave'
 gem 'cells'
 gem 'cells-rails'
