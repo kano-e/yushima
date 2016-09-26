@@ -1,7 +1,7 @@
 class ActivitiesController < ApplicationController
   # GET /activities
   def index
-    @activities = Activity.all
+    @activities = Activity.all.order(day: :desc).includes(activity_comments: :game)
   end
 
   # GET /activities/1

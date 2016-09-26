@@ -5,5 +5,5 @@ section.hero
 
 section.section
   .container
-    p = link_to('Activities', activities_path)
-    p = link_to('Games', games_path)
+    .columns.is-multiline
+      = concept('activity/cell', collection: @activities).(:index)

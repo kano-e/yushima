@@ -25,6 +25,6 @@ class ActivityComment::Cell < Cell::ViewModel
   end
 
   def game_link
-    link_to game.title_ja, game
+    return link_to game.title_ja, game if game.present?
   end
 end

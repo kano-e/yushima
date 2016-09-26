@@ -1,3 +1,7 @@
-tr
-  td = day
-  td = show_link
+.column.is-narrow.is-one-third
+  .box
+    p.title.is-3 = show_link
+    .columns = show_images
+    p.subtitle.is-6 = show_games
+    p.has-text-right
+      small = show_link('Show')

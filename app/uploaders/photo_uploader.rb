@@ -58,7 +58,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :thumbnail do
-    process resize_to_fill: [400, 400]
+    process resize_to_fill: [480, 480]
   end
 
   def public_id
