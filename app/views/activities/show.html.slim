@@ -6,12 +6,7 @@ section.section
   .container
     .columns.is-multiline
       = concept('activity_comment/cell', collection: @activity_comments).(:index)
+      == render partial: 'activity_comments/form', locals: { form: @activity_comment_form, model: @activity_comment_form.model }
 
-  h4 New Comment
-  == render partial: 'activity_comments/form', locals: { form: @activity_comment_form, model: @activity_comment_form.model }
-
-<hr>
-
-= link_to 'Edit', edit_activity_path(@model)
-'|
-= link_to 'Back', activities_path
+section.section
+  .container
