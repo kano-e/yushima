@@ -1,13 +1,13 @@
-h1 Listing activities
+section.hero
+  .hero-body
+    .container
+      h1.title Listing activities
 
-table
-  thead
-    tr
-      th Day
-      th
-      th
-      th
+section.section
+  .container
+    .columns.is-multiline
+      = concept('activity/cell', collection: @activities).(:index)
 
-  tbody = concept('activity/cell', collection: @activities).(:index)
-
-= link_to 'New Activity', new_activity_path
+section.section
+  .container
+    = link_to 'New Activity', new_activity_path

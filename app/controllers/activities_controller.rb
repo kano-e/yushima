@@ -1,13 +1,13 @@
 class ActivitiesController < ApplicationController
   # GET /activities
   def index
-    @activities = Activity.all
+    @activities = Activity.all.order(day: :desc).includes(activity_comments: :game)
   end
 
   # GET /activities/1
   def show
     present Activity::Update
-    @activity_comments = @model.activity_comments.order(created_at: :desc).all
+    @activity_comments = @model.activity_comments.includes(:game).order(id: :asc).all
     @activity_comment_form = ActivityComment::Create.present(params)
   end
 

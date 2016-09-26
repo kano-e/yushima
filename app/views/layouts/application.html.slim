@@ -1,0 +1,25 @@
+doctype html
+html
+head
+  title Feedforce Boardgame Club
+  = csrf_meta_tags
+  = stylesheet_link_tag :application, medis: 'all', 'data-turbolinks-track': 'reload'
+  = javascript_include_tag :application, 'data-turbolinks-track': 'reload'
+
+body
+  section.hero
+    .hero-head
+      .container
+        .nav
+          .nav-left
+            = link_to 'Feedforce Boardgame Club', root_path, class: 'nav-item is-brand'
+
+  = yield
+
+  footer.footer
+    .container
+      .content
+        p Feedforce Boardgame Club
+        p = link_to fa_icon('twitter'), 'https://twitter.com/ff_boardgame', class: 'icon'
+        p = link_to fa_icon('facebook'), 'https://business.facebook.com/feedforce.boardgame/', class: 'icon'
+
