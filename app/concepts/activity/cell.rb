@@ -25,8 +25,14 @@ class Activity::Cell < Cell::ViewModel
   end
 
   def show_games
-    activity_comments.map(&:game).compact.uniq.first(5).map { |game| game.title_ja }.join(
+    activity_comments.map(&:game).compact.uniq.map { |game| game.title_ja }.join(
       content_tag(:span, '｜')
     )
+  end
+
+  def link_to_games
+    activity_comments.map(&:game).compact.uniq.map do |game|
+      link_to game.title_ja, game
+    end.join(content_tag(:span, '｜'))
   end
 end

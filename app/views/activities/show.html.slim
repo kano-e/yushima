@@ -1,16 +1,11 @@
-p#notice = notice
+section.hero
+  .hero-body
+    .container = concept('activity/cell', @model).()
 
-div = concept('activity/cell', @model).()
-
-def
-  h3 Comments
-
-  table
-    thead
-      th Photo
-      th Detail
-      th Game
-    tbody = concept('activity_comment/cell', collection: @activity_comments).(:index)
+section.section
+  .container
+    .columns.is-multiline
+      = concept('activity_comment/cell', collection: @activity_comments).(:index)
 
   h4 New Comment
   == render partial: 'activity_comments/form', locals: { form: @activity_comment_form, model: @activity_comment_form.model }
