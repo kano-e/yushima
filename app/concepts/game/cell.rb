@@ -7,6 +7,7 @@ class Game::Cell < Cell::ViewModel
   property :max_players
   property :min_minutes
   property :max_minutes
+  property :photo
 
   def index
     render :index
@@ -50,5 +51,23 @@ class Game::Cell < Cell::ViewModel
 
   def show_link(text = nil)
     link_to text || title_ja, model
+  end
+
+  def index_image
+    return if photo.blank?
+
+    content_tag(:figure, class: 'image is-square') do
+      image_tag(photo.url(:thumbnail))
+    end
+  end
+
+  def heading_image
+    return if photo.blank?
+
+    content_tag(:figure, class: 'is-pulled-left') do
+      content_tag(:p, class: 'image is-128x128') do
+        image_tag(photo.url(:thumbnail))
+      end
+    end
   end
 end

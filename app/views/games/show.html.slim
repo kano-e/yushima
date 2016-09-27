@@ -1,8 +1,6 @@
-section.hero
-  .hero-body
-    .container = concept('game/cell', @model).()
-
 section.section
   .container
-    .columns.is-multiline
-      = concept('activity_comment/cell', collection: @activity_comments).(:index)
+    = concept('game/cell', @model).()
+
+    .columns.is-multiline = concept('activity_comment/cell', collection: @activity_comments).(:index)
+

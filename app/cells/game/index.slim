@@ -1,8 +1,10 @@
 .column.is-narrow.is-one-quarter
   .box
-    p.title.is-3 = show_link
-    p.subtitle.is-6
+    p.title.is-4 = show_link
+    p.subtitle.is-6 = title_en
+    .content
       = number_of_players
       = playing_time
+    = index_image
     p.has-text-right
       small = show_link('Show')
