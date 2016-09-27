@@ -25,7 +25,7 @@ class ActivityCommentsController < ApplicationController
       return redirect_to(op.model.activity, notice: 'Activity was successfully created.')
     end
 
-    render :new
+    redirect_to @form.model.activity, notice: 'Activity comment was failure created.'
   end
 
   # PATCH/PUT /activity_comments/1
