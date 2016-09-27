@@ -6,7 +6,7 @@
           - form.errors.full_messages.each do |message|
             li = message
 
-.column.is-one-quarter
+.column.is-one-quarter-desktop
   = form_for model, url: activity_activity_comments_path(activity_id: model.activity_id) do |f|
     .card
       .card-content
@@ -25,7 +25,7 @@
           .field
             = f.label :game, class: 'label'
             p.control
-              span.select.is-small
+              span.select.is-fullwidth
                 = f.collection_select :game_id, *form.games, include_blank: true
         .content
           p.control = f.submit class: 'button is-info'
