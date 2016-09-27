@@ -7,6 +7,7 @@ class GamesController < ApplicationController
   # GET /games/1
   def show
     present Game::Update
+    @activity_comments = @model.activity_comments.includes(:activity).order(id: :desc).limit(20).all
   end
 
   # GET /games/new

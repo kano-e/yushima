@@ -1,7 +1,8 @@
-p#notice = notice
+section.hero
+  .hero-body
+    .container = concept('game/cell', @model).()
 
-div = concept('game/cell', @model).()
-
-= link_to 'Edit', edit_game_path(@model)
-'|
-= link_to 'Back', games_path
+section.section
+  .container
+    .columns.is-multiline
+      = concept('activity_comment/cell', collection: @activity_comments).(:index)

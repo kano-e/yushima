@@ -4,6 +4,7 @@ class ActivityComment::Cell < Cell::ViewModel
   property :photo
   property :detail
   property :game
+  property :activity
 
   def index
     render :index
@@ -29,7 +30,14 @@ class ActivityComment::Cell < Cell::ViewModel
 
     content_tag(:div, class: 'card-content') do
       content_tag(:div, class: 'content') do
-        show_detail + game_link
+        res = show_detail
+        case controller
+        when GamesController
+          res += activity_link
+        when ActivitiesController
+          res += game_link
+        end
+        res
       end
     end
   end
@@ -44,5 +52,11 @@ class ActivityComment::Cell < Cell::ViewModel
     return ' ' if game.blank?
 
     link_to game.title_ja, game
+  end
+
+  def activity_link
+    return ' ' if activity.blank?
+
+    link_to activity.day, activity
   end
 end
