@@ -1,8 +1,13 @@
-h1 Editing activity
+section.section
+  .container
+    .heading
+      .content
+        = link_to 'Activities', activities_path
+        = ' > '
+        = link_to @model.day, @model
+        = ' >'
+      h1.title Editing activity
 
-== render 'form'
-
-= link_to 'Show', @activity
-'|
-= link_to 'Back', activities_path
-
+section.section
+  .container
+    == render 'form'
