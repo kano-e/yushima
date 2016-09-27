@@ -1,7 +1,10 @@
 .heading
+  .content
+    = link_to 'Games', games_path
+    = ' >'
   = heading_image
   h1.title = title_ja
-  p.subtitle = title_en
+  p.subtitle.is-6 = title_en
   .content
     = number_of_players
     = playing_time

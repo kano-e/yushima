@@ -64,7 +64,7 @@ class Game::Cell < Cell::ViewModel
   def heading_image
     return if photo.blank?
 
-    content_tag(:figure, class: 'is-pulled-left') do
+    content_tag(:figure, class: 'is-pulled-left', style: 'margin-right: 20px') do
       content_tag(:p, class: 'image is-128x128') do
         image_tag(photo.url(:thumbnail))
       end
