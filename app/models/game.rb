@@ -21,4 +21,8 @@
 
 class Game < ApplicationRecord
   has_many :activity_comments
+
+  attr_accessor :photo_cache
+
+  mount_uploader :photo, PhotoUploader
 end
