@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
   # GET /games
   def index
-    @games = Game.all
+    @games = Game.all.order(title_en: :asc)
   end
 
   # GET /games/1

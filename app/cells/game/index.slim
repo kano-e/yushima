@@ -1,6 +1,8 @@
-tr
-  td = title_ja
-  td = title_en
-  td = number_of_players
-  td = playing_time
-  td = show_link
+.column.is-narrow.is-one-quarter
+  .box
+    p.title.is-3 = show_link
+    p.subtitle.is-6
+      = number_of_players
+      = playing_time
+    p.has-text-right
+      small = show_link('Show')
