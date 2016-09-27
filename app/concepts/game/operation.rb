@@ -8,7 +8,7 @@ class Game::Create < Trailblazer::Operation
     property :title_en
     property :min_players,
       validates: {
-        allow_nil: true,
+        allow_blank: true,
         numericality: {
           greater_than_or_equal_to: 1,
           less_than_or_equal_to: 99,
@@ -16,7 +16,7 @@ class Game::Create < Trailblazer::Operation
       }
     property :max_players,
       validates: {
-        allow_nil: true,
+        allow_blank: true,
         numericality: {
           greater_than_or_equal_to: 1,
           less_than_or_equal_to: 99,
@@ -24,14 +24,14 @@ class Game::Create < Trailblazer::Operation
       }
     property :min_minutes,
       validates: {
-        allow_nil: true,
+        allow_blank: true,
         numericality: {
           greater_than_or_equal_to: 1,
         },
       }
     property :max_minutes,
       validates: {
-        allow_nil: true,
+        allow_blank: true,
         numericality: {
           greater_than_or_equal_to: 1,
         },
