@@ -14,6 +14,12 @@ body
           .nav-left
             = link_to 'Feedforce Boardgame Club', root_path, class: 'nav-item is-brand'
 
+  - if notice
+    section.section
+      .container
+        article.message
+          .message-body = notice
+
   = yield
 
   footer.footer

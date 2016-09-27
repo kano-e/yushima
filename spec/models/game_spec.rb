@@ -15,6 +15,8 @@
 # **`max_players`**  | `integer`          |
 # **`min_minutes`**  | `integer`          |
 # **`max_minutes`**  | `integer`          |
+# **`photo`**        | `string`           |
+# **`public_str`**   | `string`           | `not null`
 #
 
 require 'rails_helper'

@@ -17,7 +17,7 @@ class Activity::Cell < Cell::ViewModel
 
     activity_comments.select { |com| com.photo.present? }.first(3).map do |comment|
       content_tag(:div, class: 'column') do
-        content_tag(:figure, class: 'image is-96x96') do
+        content_tag(:figure, class: 'image is-square') do
           image_tag comment.photo.url(:thumbnail)
         end
       end

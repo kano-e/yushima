@@ -6,7 +6,7 @@ class ActivityComment::OperationBase < Trailblazer::Operation
   contract do
     property :game_id
     property :photo
-    property :detail, validates: { allow_nil: true, length: { maximum: 100 } }
+    property :detail, validates: { presence: true, length: { maximum: 100 } }
   end
 
   def games

@@ -1,10 +1,15 @@
-h2
-  = @model.title_ja
-  small = @model.title_en
+.heading
+  .content
+    = link_to 'Games', games_path
+    = ' >'
+  = heading_image
+  h1.title
+    = title_ja
+    = link_to 'Edit', edit_game_path, class: 'button is-outlined is-dark is-small'
+  p.subtitle.is-6 = title_en
+  .content
+    = number_of_players
+    = playing_time
 
-dl
-  dt Number of Players
-  dd = number_of_players
-
-  dt Playing Time
-  dd = playing_time
+.content
+  .is-clearfix

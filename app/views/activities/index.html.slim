@@ -1,13 +1,10 @@
-section.hero
-  .hero-body
-    .container
+section.section
+  .container
+    .heading
       h1.title Listing activities
+      = link_to 'New Activity', new_activity_path, class: 'button is-outlined is-info is-small'
 
 section.section
   .container
     .columns.is-multiline
       = concept('activity/cell', collection: @activities).(:index)
-
-section.section
-  .container
-    = link_to 'New Activity', new_activity_path

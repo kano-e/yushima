@@ -27,4 +27,6 @@ create_table "games", force: :cascade do |t|
   t.integer  "max_players"
   t.integer  "min_minutes"
   t.integer  "max_minutes"
+  t.string   "photo"
+  t.string   "public_str",  null: false
 end

@@ -1,28 +1,39 @@
+- if @form.errors.any?
+  article.message.is-danger
+    .message-header = "#{pluralize(@form.errors.count, "error")} prohibited this form from being saved:"
+    .message-body.content
+        ul
+          - @form.errors.full_messages.each do |message|
+            li = message
+
 = form_for @model do |f|
-  - if @form.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@form.errors.count, "error")} prohibited this game from being saved:"
-      ul
-        - @form.errors.full_messages.each do |message|
-          li = message
+  = f.label :title_ja, class: 'label'
+  .control.is-horizontal
+    .control.is-grouped
+      p.control.is-expanded = f.text_field :title_ja, class: 'input'
 
-  .field
-    = f.label :title_ja
-    = f.text_field :title_ja
-  .field
-    = f.label :title_en
-    = f.text_field :title_en
-  .field
-    = f.label :min_players
-    = f.number_field :min_players
-  .field
-    = f.label :max_players
-    = f.number_field :max_players
-  .field
-    = f.label :min_minutes
-    = f.number_field :min_minutes
-  .field
-    = f.label :max_minutes
-    = f.number_field :max_minutes
+  = f.label :title_en, class: 'label'
+  .control.is-horizontal
+    .control.is-grouped
+      p.control.is-expanded = f.text_field :title_en, class: 'input'
 
-  .actions = f.submit
+  = f.label :photo, class: 'label'
+  .control.is-horizontal
+    .control.is-grouped
+      p.control.is-expanded
+        = f.file_field :photo
+        = f.hidden_field :photo_cache
+
+  = f.label :number_of_players, class: 'label'
+  .control.is-horizontal
+    .control.is-grouped
+      p.control.is-expanded = f.number_field :min_players, placeholder: 'min', class: 'input'
+      p.control.is-expanded = f.number_field :max_players, placeholder: 'max', class: 'input'
+
+  = f.label :number_of_minutes, class: 'label'
+  .control.is-horizontal
+    .control.is-grouped
+      p.control.is-expanded = f.number_field :min_minutes, placeholder: 'min', class: 'input'
+      p.control.is-expanded = f.number_field :max_minutes, placeholder: 'max', class: 'input'
+
+  p.control.is-expanded = f.submit class: 'button is-info'

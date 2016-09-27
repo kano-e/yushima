@@ -1,12 +1,13 @@
 class GamesController < ApplicationController
   # GET /games
   def index
-    @games = Game.all
+    @games = Game.all.order(title_en: :asc)
   end
 
   # GET /games/1
   def show
     present Game::Update
+    @activity_comments = @model.activity_comments.includes(:activity).order(id: :desc).limit(20).all
   end
 
   # GET /games/new

@@ -1,5 +1,13 @@
-h1 New game
+section.section
+  .container
+    .heading
+      .content
+        = link_to 'Games', games_path
+        = ' >'
+    .heading
+      h1.title New game
 
-== render 'form'
+section.section
+  .container
+    == render 'form'
 
-= link_to 'Back', games_path

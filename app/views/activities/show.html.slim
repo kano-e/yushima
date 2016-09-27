@@ -1,6 +1,6 @@
-section.hero
-  .hero-body
-    .container = concept('activity/cell', @model).()
+section.section
+  .container
+    .heading = concept('activity/cell', @model).()
 
 section.section
   .container
@@ -8,5 +8,3 @@ section.section
       = concept('activity_comment/cell', collection: @activity_comments).(:index)
       == render partial: 'activity_comments/form', locals: { form: @activity_comment_form, model: @activity_comment_form.model }
 
-section.section
-  .container
