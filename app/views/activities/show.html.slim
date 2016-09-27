@@ -7,3 +7,4 @@ section.section
     .columns.is-multiline
       = concept('activity_comment/cell', collection: @activity_comments).(:index)
       == render partial: 'activity_comments/form', locals: { form: @activity_comment_form, model: @activity_comment_form.model }
+

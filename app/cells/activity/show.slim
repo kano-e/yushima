@@ -1,5 +1,7 @@
 .content
   = link_to 'Activities', activities_path
   = ' >'
-h1.title = day
+h1.title
+  = day
+  = link_to 'Edit', edit_activity_path, class: 'button is-outlined is-dark is-small'
 .content = link_to_games

@@ -3,7 +3,9 @@
     = link_to 'Games', games_path
     = ' >'
   = heading_image
-  h1.title = title_ja
+  h1.title
+    = title_ja
+    = link_to 'Edit', edit_game_path, class: 'button is-outlined is-dark is-small'
   p.subtitle.is-6 = title_en
   .content
     = number_of_players
