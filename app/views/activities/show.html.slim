@@ -1,10 +1,8 @@
-section.section
-  .container
-    .heading = concept('activity/cell', @model).()
+.section.no-pad-bot
+  .container = concept('activity/cell', @model).()
 
-section.section
+.section
   .container
-    .columns.is-multiline
+    .row
       = concept('activity_comment/cell', collection: @activity_comments).(:index)
       == render partial: 'activity_comments/form', locals: { form: @activity_comment_form, model: @activity_comment_form.model }
-

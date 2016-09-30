@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require materialize-sprockets
 //= require_tree .
 
@@ -20,6 +19,7 @@
 (function($){
   $(function(){
 
+    $('select').material_select();
     $('.parallax').parallax();
 
   }); // end of document ready

@@ -2,7 +2,9 @@
   .card.white
     .card-content
       span.card-title = show_link
-      p.blue-grey-text = show_games
+      .row
+        - games.each do |game|
+          .col.teal-text = game.title_ja
     .card-action.right-align
       .row.valign-wrapper
         - images.each do |image|

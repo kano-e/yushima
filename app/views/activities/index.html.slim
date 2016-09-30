@@ -4,7 +4,7 @@
     .row.right-align
       = link_to 'New Activity', new_activity_path, class: 'btn-flat'
 
-.container
-  .section
+.section
+  .container
     .row
       = concept('activity/cell', collection: @activities).(:index)

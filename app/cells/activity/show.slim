@@ -1,7 +1,10 @@
-.content
-  = link_to 'Activities', activities_path
-  = ' >'
-h1.title
-  = day
-  = link_to 'Edit', edit_activity_path, class: 'button is-outlined is-dark is-small'
-.content = link_to_games
+.row
+  .col
+    = link_to 'Actvities', activities_path, class: 'breadcrumb light-green-text'
+h1.header.center = day
+.row.right-align
+  = link_to 'Edit', edit_activity_path, class: 'btn-flat'
+.row
+  - games.each do |game|
+    .col
+      = link_to game.title_ja, game, class: 'btn'
