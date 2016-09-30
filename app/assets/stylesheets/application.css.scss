@@ -24,3 +24,20 @@
     top: 0;
   }
 }
+
+nav {
+  @extend .light-green, .lighten-2;
+}
+
+.no-pad-bot nav {
+  @extend .white, .z-depth-0;
+}
+
+.no-pad-bot .breadcrumb {
+  @extend .light-green-text;
+}
+
+.no-pad-bot .breadcrumb:before {
+  content: '>';
+  @extend .light-green-text;
+}
