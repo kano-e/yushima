@@ -15,3 +15,12 @@
 //= require turbolinks
 //= require materialize-sprockets
 //= require_tree .
+
+
+(function($){
+  $(function(){
+
+    $('.parallax').parallax();
+
+  }); // end of document ready
+})(jQuery); // end of jQuery name space

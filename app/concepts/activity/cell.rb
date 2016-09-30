@@ -12,6 +12,11 @@ class Activity::Cell < Cell::ViewModel
     link_to text || day, model
   end
 
+  def images
+    return if activity_comments.size.zero?
+    activity_comments.select { |com| com.photo.present? }.first(3).map { |com| com.photo }
+  end
+
   def show_images
     return if activity_comments.size.zero?
 

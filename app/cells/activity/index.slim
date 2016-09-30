@@ -1,7 +1,11 @@
-.column.is-narrow.is-one-third-desktop
-  .box
-    p.title.is-3 = show_link
-    .columns = show_images
-    p.subtitle.is-6 = show_games
-    p.has-text-right
-      small = show_link('Show')
+.col.s12.m6.l6
+  .card.white
+    .card-content
+      span.card-title = show_link
+      p.blue-grey-text = show_games
+    .card-action.right-align
+      .row.valign-wrapper
+        - images.each do |image|
+          .col.s4.m4.l4
+            = image_tag image.url(:thumbnail), class: 'responsive-img'
+      = show_link('Show')

@@ -1,9 +1,10 @@
-section.hero
-  .hero-body
+#index-banner.parallax-container
+  .section.no-pad-bot
     .container
-      h1.title Feedforce Boardgame Club
+  .parallax
+    = image_tag('feedforce-boardgame-club.jpg')
 
-section.section
-  .container
-    .columns.is-multiline
+.container
+  .section
+    .row
       = concept('activity/cell', collection: @activities).(:index)
