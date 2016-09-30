@@ -1,10 +1,10 @@
-section.section
+.section.no-pad-bot
   .container
-    .heading
-      h1.title Listing activities
-      = link_to 'New Activity', new_activity_path, class: 'button is-outlined is-info is-small'
+    h1.header.center Listing activities
+    .row.right-align
+      = link_to 'New Activity', new_activity_path, class: 'btn-flat'
 
-section.section
-  .container
-    .columns.is-multiline
+.container
+  .section
+    .row
       = concept('activity/cell', collection: @activities).(:index)

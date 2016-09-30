@@ -13,7 +13,7 @@ class Activity::Cell < Cell::ViewModel
   end
 
   def images
-    return if activity_comments.size.zero?
+    [] if activity_comments.size.zero?
     activity_comments.select { |com| com.photo.present? }.first(3).map { |com| com.photo }
   end
 
