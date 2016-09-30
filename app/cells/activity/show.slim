@@ -1,9 +1,6 @@
-.row
-  .col
-    = link_to 'Actvities', activities_path, class: 'breadcrumb light-green-text'
-h1.header.center = day
 .row.right-align
   = link_to 'Edit', edit_activity_path, class: 'btn-flat'
+h1.header.center = day
 .row
   - games.each do |game|
     .col
