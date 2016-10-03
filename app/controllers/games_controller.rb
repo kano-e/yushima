@@ -1,4 +1,6 @@
 class GamesController < ApplicationController
+  prepend_before_filter :authenticate!, only: [:new, :edit, :create, :update, :destroy]
+
   # GET /games
   def index
     @games = Game.all.order(title_en: :asc)

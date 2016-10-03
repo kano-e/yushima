@@ -1,5 +1,6 @@
 class Game::Cell < Cell::ViewModel
   include ::Cell::Slim
+  include ApplicationHelper
 
   property :title_ja
   property :title_en

@@ -1,6 +1,7 @@
 # == Route Map
 #
 #                         Prefix Verb   URI Pattern                                                   Controller#Action
+#                                GET    /auth/:providr/callback(.:format)                             sessions#create
 #     activity_activity_comments GET    /activities/:activity_id/activity_comments(.:format)          activity_comments#index
 #                                POST   /activities/:activity_id/activity_comments(.:format)          activity_comments#create
 #  new_activity_activity_comment GET    /activities/:activity_id/activity_comments/new(.:format)      activity_comments#new
@@ -30,6 +31,9 @@
 
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get '/auth/:providr/callback', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
 
   resources :activities do
     resources :activity_comments

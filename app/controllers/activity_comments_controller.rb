@@ -1,4 +1,5 @@
 class ActivityCommentsController < ApplicationController
+  prepend_before_filter :authenticate!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_activity_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /activity_comments

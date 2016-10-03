@@ -1,3 +1,15 @@
+create_table "accounts", force: :cascade do |t|
+  t.datetime "created_at",               null: false
+  t.datetime "updated_at",               null: false
+  t.string   "provider",                 null: false
+  t.string   "uid",                      null: false
+  t.integer  "user_id"
+  t.json     "credentials", default: {}
+  t.json     "info",        default: {}
+  t.index ["provider", "uid"], name: "index_accounts_on_provider_and_uid", unique: true, using: :btree
+  t.index ["user_id"], name: "index_accounts_on_user_id", using: :btree
+end
+
 create_table "activities", force: :cascade do |t|
   t.datetime "created_at", null: false
   t.datetime "updated_at", null: false
@@ -29,4 +41,15 @@ create_table "games", force: :cascade do |t|
   t.integer  "max_minutes"
   t.string   "photo"
   t.string   "public_str",  null: false
+  t.index ["public_str"], name: "index_games_on_public_str", unique: true, using: :btree
+  t.index ["title_en"], name: "index_games_on_title_en", using: :btree
 end
+
+create_table "users", force: :cascade do |t|
+  t.string   "nickname"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+  t.text     "image_url"
+end
+
+add_foreign_key "accounts", "users", name: "accounts_belongs_to_users"

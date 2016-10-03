@@ -18,6 +18,13 @@
 # **`photo`**        | `string`           |
 # **`public_str`**   | `string`           | `not null`
 #
+# ### Indexes
+#
+# * `index_games_on_public_str` (_unique_):
+#     * **`public_str`**
+# * `index_games_on_title_en`:
+#     * **`title_en`**
+#
 
 class Game < ApplicationRecord
   has_many :activity_comments

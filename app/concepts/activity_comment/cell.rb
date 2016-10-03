@@ -1,5 +1,6 @@
 class ActivityComment::Cell < Cell::ViewModel
   include ::Cell::Slim
+  include ApplicationHelper
 
   property :photo
   property :detail

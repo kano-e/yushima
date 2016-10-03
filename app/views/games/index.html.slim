@@ -5,8 +5,9 @@ nav
 
 .section.no-pad-bot
   .container
-    .row.right-align
-      = link_to 'New Game', new_game_path, class: 'btn-flat'
+    - if signed_in?
+      .row.right-align
+        = link_to 'New Game', new_game_path, class: 'btn-flat'
 
 .section
   .container
