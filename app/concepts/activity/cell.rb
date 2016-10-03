@@ -1,5 +1,6 @@
 class Activity::Cell < Cell::ViewModel
   include ::Cell::Slim
+  include ApplicationHelper
 
   property :day
   property :activity_comments

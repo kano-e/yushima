@@ -1,5 +1,6 @@
-.row.right-align
-  = link_to 'Edit', edit_game_path, class: 'btn-flat'
+- if signed_in?
+  .row.right-align
+    = link_to 'Edit', edit_game_path, class: 'btn-flat'
 .row
   - if photo.present?
     .col.s12.l4.m4 = heading_image
