@@ -14,13 +14,11 @@ body
       ul#nav-mobile.side-nav
       = link_to content_tag(:i, 'menu', class: 'material-icons'), '#', 'data-activates': 'nav-mobile', class: 'button-collapse'
 
-
   - if notice
-    .container
-      .row
-        .col.s12
-          .card-panel.grey
-            span.white-text = notice
+    nav.blue-grey.lighten-5
+      .nav-wrapper
+        .container
+          span.grey-text = notice
 
   = yield
 

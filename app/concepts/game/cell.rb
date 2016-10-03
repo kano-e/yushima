@@ -16,7 +16,7 @@ class Game::Cell < Cell::ViewModel
   def number_of_players
     return if !min_players && !max_players
 
-    content_tag(:span, class: 'tag') do
+    content_tag(:div, class: 'chip') do
       if min_players && max_players
         if min_players == max_players
           '%d players' % [min_players]
@@ -34,7 +34,7 @@ class Game::Cell < Cell::ViewModel
   def playing_time
     return if !min_minutes && !max_minutes
 
-    content_tag(:span, class: 'tag') do
+    content_tag(:div, class: 'chip') do
       if min_minutes && max_minutes
         if min_minutes == max_minutes
           '%d minutes' % [min_minutes]
@@ -63,11 +63,11 @@ class Game::Cell < Cell::ViewModel
 
   def heading_image
     return if photo.blank?
+    image_tag(photo.url(:standard), class: 'responsive-img z-depth-2')
+  end
 
-    content_tag(:figure, class: 'is-pulled-left', style: 'margin-right: 20px') do
-      content_tag(:p, class: 'image is-128x128') do
-        image_tag(photo.url(:thumbnail))
-      end
-    end
+  def heading_title_en
+    return if title_en.blank?
+    content_tag(:p, title_en, class: 'flow-text blue-grey-text')
   end
 end

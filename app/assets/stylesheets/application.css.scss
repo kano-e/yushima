@@ -29,15 +29,7 @@ nav {
   @extend .light-green, .lighten-2;
 }
 
-.no-pad-bot nav {
-  @extend .white, .z-depth-0;
-}
-
-.no-pad-bot .breadcrumb {
-  @extend .light-green-text;
-}
-
-.no-pad-bot .breadcrumb:before {
+.breadcrumb:before {
   content: '>';
-  @extend .light-green-text;
+  font-size: 16px;
 }
