@@ -19,14 +19,14 @@ class Game::Cell < Cell::ViewModel
     content_tag(:div, class: 'chip') do
       if min_players && max_players
         if min_players == max_players
-          '%d players' % [min_players]
+          '%d 人' % [min_players]
         else
-          '%d 〜 %d players' % [min_players, max_players]
+          '%d 〜 %d 人' % [min_players, max_players]
         end
       elsif min_players
-        '%d 〜 players' % [min_players] if min_players
+        '%d 〜 人' % [min_players] if min_players
       else
-        '〜 %d players' % [max_players] if max_players
+        '〜 %d 人' % [max_players] if max_players
       end
     end
   end
@@ -37,14 +37,14 @@ class Game::Cell < Cell::ViewModel
     content_tag(:div, class: 'chip') do
       if min_minutes && max_minutes
         if min_minutes == max_minutes
-          '%d minutes' % [min_minutes]
+          '%d 分' % [min_minutes]
         else
-          '%d 〜 %d minutes' % [min_minutes, max_minutes]
+          '%d 〜 %d 分' % [min_minutes, max_minutes]
         end
       elsif min_minutes
-        '%d 〜 minutes' % [min_minutes] if min_minutes
+        '%d 〜 分' % [min_minutes] if min_minutes
       else
-        '〜 %d minutes' % [max_minutes] if max_minutes
+        '〜 %d 分' % [max_minutes] if max_minutes
       end
     end
   end
@@ -55,10 +55,14 @@ class Game::Cell < Cell::ViewModel
 
   def index_image
     return if photo.blank?
-
-    content_tag(:figure, class: 'image is-square') do
-      image_tag(photo.url(:thumbnail))
+    content_tag(:div, class: 'card-image') do
+      image_tag(photo.url(:thumbnail), class: 'responsive-img')
     end
+  end
+
+  def index_title_en
+    return if title_en.blank?
+    content_tag(:p, title_en, class: 'blue-grey-text')
   end
 
   def heading_image
