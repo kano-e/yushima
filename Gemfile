@@ -64,6 +64,7 @@ gem 'ridgepole-rails', github: 'sakuro/ridgepole-rails'
 gem 'slim-rails'
 gem 'trailblazer'
 gem 'trailblazer-rails'
+gem 'warden'
 
 group :development, :test do
   gem 'factory_girl_rails'
