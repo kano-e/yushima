@@ -7,25 +7,31 @@ head
   = javascript_include_tag :application, 'data-turbolinks-track': 'reload'
 
 body
-  section.hero
-    .hero-head
-      .container
-        .nav
-          .nav-left
-            = link_to 'Feedforce Boardgame Club', root_path, class: 'nav-item is-brand'
+  nav.light-green[role='navigation']
+    .nav-wrapper.container
+      = link_to 'Feedforce Boardgame Club', root_path, class: 'brand-logo', id: 'logo-container'
+      ul.right.hide-on-med-and-down
+      ul#nav-mobile.side-nav
+      = link_to content_tag(:i, 'menu', class: 'material-icons'), '#', 'data-activates': 'nav-mobile', class: 'button-collapse'
 
   - if notice
-    section.section
-      .container
-        article.message
-          .message-body = notice
+    nav.blue-grey.lighten-5
+      .nav-wrapper
+        .container
+          span.grey-text = notice
 
   = yield
 
-  footer.footer
+  footer.page-footer.light-green.lighten-3
     .container
-      .content
-        p Feedforce Boardgame Club
-        p = link_to fa_icon('twitter'), 'https://twitter.com/ff_boardgame', class: 'icon'
-        p = link_to fa_icon('facebook'), 'https://business.facebook.com/feedforce.boardgame/', class: 'icon'
+      .row
+        .col.l4.s12
+          a.waves-effect.waves-light.btn-floating.light-green[href='https://twitter.com/ff_boardgame']
+            = fa_icon('twitter')
+          | &nbsp;
+          a.waves-effect.waves-light.btn-floating.light-green[href='https://business.facebook.com/feedforce.boardgame/']
+            = fa_icon('facebook')
+    .footer-copyright
+      .container
+        | Feedforce Boardgame Club
 

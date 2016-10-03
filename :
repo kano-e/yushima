@@ -11,7 +11,7 @@
     .card.white
       .card-content
         .row
-          .col.s12.m12.l12.input-field.file-field
+          .input-field.file-field
             .btn
               span = fa_icon('photo')
               = f.file_field :photo
@@ -20,15 +20,15 @@
               input.file-path.validate[type='text']
 
         .row
-          .col.s12.m12.l12.input-field
-            = f.label :detail, 'Comment'
-            = f.text_area :detail, class: 'materialize-textarea', length: 100
-
-        .row
-          .col.s12.m12.l12.input-field
-            = f.collection_select :game_id, *form.games, include_blank: true
+          .input-field.col
             = f.label :game
+            = f.collection_select :game_id, *form.games, include_blank: true, class: 'browser-default'
 
         .row
-          .col.s12.m12.l12
+          .input-field.col
+            = f.label :detail, 'Comment'
+            = f.text_area :detail, class: 'materialize-textarea'
+
+        .row.center-align
+          .col
             = f.submit class: 'btn'

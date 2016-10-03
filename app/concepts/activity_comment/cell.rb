@@ -19,38 +19,40 @@ class ActivityComment::Cell < Cell::ViewModel
     return if photo.blank?
 
     content_tag(:div, class: 'card-image') do
-      content_tag(:figure, class: 'image is-square') do
-        image_tag(photo.url(:thumbnail))
-      end
+      image_tag(photo.url(:thumbnail))
     end
   end
 
   def card_content
-    return if detail.blank? && game.blank?
+    return if detail.blank?
 
     content_tag(:div, class: 'card-content') do
       content_tag(:div, class: 'content') do
-        res = show_detail
-        case controller
-        when GamesController
-          res += activity_link
-        when ActivitiesController
-          res += game_link
-        end
-        res
+        show_detail
+      end
+    end
+  end
+
+  def card_action
+    return if game.blank?
+
+    content_tag(:div, class: 'card-action') do
+      case controller
+      when GamesController
+        activity_link
+      when ActivitiesController
+        game_link
       end
     end
   end
 
   def show_detail
-    return ' ' if detail.blank?
-
+    return if detail.blank?
     content_tag(:p, detail)
   end
 
   def game_link
-    return ' ' if game.blank?
-
+    return if game.blank?
     link_to game.title_ja, game
   end
 

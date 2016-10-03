@@ -1,10 +1,11 @@
-.column.is-one-quarter-desktop
-  .box
-    p.title.is-4 = show_link
-    p.subtitle.is-6 = title_en
-    .content
-      = number_of_players
-      = playing_time
+.col.s12.m6.l3
+  .card.white
     = index_image
-    p.has-text-right
-      small = show_link('Show')
+    .card-content
+      span.card-title = show_link
+      = index_title_en
+    .card-action
+      .row
+        = number_of_players
+        = playing_time
+      p.right-align = show_link('Show')

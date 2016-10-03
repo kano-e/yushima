@@ -1,13 +1,10 @@
-section.section
-  .container
-    .heading
-      .content
-        = link_to 'Games', games_path
-        = ' >'
-    .heading
-      h1.title New game
+nav
+  .nav-wrapper
+    .container
+      = link_to 'Games', games_path, class: 'breadcrumb'
+      span.breadcrumb New Game
 
-section.section
+.section
   .container
     == render 'form'
 

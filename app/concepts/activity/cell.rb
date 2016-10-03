@@ -12,6 +12,11 @@ class Activity::Cell < Cell::ViewModel
     link_to text || day, model
   end
 
+  def images
+    [] if activity_comments.size.zero?
+    activity_comments.select { |com| com.photo.present? }.first(3).map { |com| com.photo }
+  end
+
   def show_images
     return if activity_comments.size.zero?
 
@@ -22,6 +27,10 @@ class Activity::Cell < Cell::ViewModel
         end
       end
     end.join
+  end
+
+  def games
+    activity_comments.map(&:game).compact.uniq
   end
 
   def show_games

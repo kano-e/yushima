@@ -1,6 +1,13 @@
-section.section
-  .container
-    = concept('game/cell', @model).()
+nav
+  .nav-wrapper
+    .container
+      = link_to 'Games', games_path, class: 'breadcrumb'
+      span.breadcrumb Show Game
+.section.no-pad-bot
+  .container = concept('game/cell', @model).()
 
-    .columns.is-multiline = concept('activity_comment/cell', collection: @activity_comments).(:index)
+.section
+  .container
+    .row
+      = concept('activity_comment/cell', collection: @activity_comments).(:index)
 

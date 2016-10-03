@@ -12,5 +12,19 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require materialize-sprockets
 //= require_tree .
+
+
+(function($){
+  $(function(){
+
+    $('.parallax').parallax();
+    $('select').material_select();
+    $('.datepicker').pickadate({
+      selectMonths: false, // Creates a dropdown to control month
+      selectYears: 1 // Creates a dropdown of 15 years to control year
+    });
+
+  }); // end of document ready
+})(jQuery); // end of jQuery name space

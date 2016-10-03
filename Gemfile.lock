@@ -52,8 +52,6 @@ GEM
     arel (7.1.2)
     aws_cf_signer (0.1.3)
     builder (3.2.2)
-    bulma-rails (0.1.2)
-      sass (~> 3.2)
     byebug (9.0.5)
     carrierwave (0.11.2)
       activemodel (>= 3.2.0)
@@ -137,6 +135,8 @@ GEM
     lumberjack (1.0.10)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    materialize-sass (0.97.7)
+      sass (~> 3.3)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -299,7 +299,6 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
-  bulma-rails (~> 0.1.2)
   byebug
   carrierwave
   cells
@@ -313,6 +312,7 @@ DEPENDENCIES
   jquery-rails
   kramdown
   listen (~> 3.0.5)
+  materialize-sass
   pg (~> 0.18)
   pry-byebug
   pry-rails
@@ -332,6 +332,9 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console
   yard
+
+RUBY VERSION
+   ruby 2.3.1p112
 
 BUNDLED WITH
    1.12.5

@@ -1,10 +1,14 @@
-section.section
-  .container
-    .heading
-      h1.title Listing games
-      = link_to 'New Game', new_game_path, class: 'button is-outlined is-info is-small'
+nav
+  .nav-wrapper
+    .container
+      span.breadcrumb Games
 
-section.section
+.section.no-pad-bot
   .container
-    .columns.is-multiline
+    .row.right-align
+      = link_to 'New Game', new_game_path, class: 'btn-flat'
+
+.section
+  .container
+    .row
       = concept('game/cell', collection: @games).(:index)

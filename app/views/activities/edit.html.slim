@@ -1,12 +1,9 @@
-section.section
-  .container
-    .heading
-      .content
-        = link_to 'Activities', activities_path
-        = ' > '
-        = link_to @model.day, @model
-        = ' >'
-      h1.title Editing activity
+nav
+  .nav-wrapper
+    .container
+      = link_to 'Actvities', activities_path, class: 'breadcrumb'
+      = link_to @model.day, @model, class: 'breadcrumb'
+      span.breadcrumb Editing Activity
 
 section.section
   .container

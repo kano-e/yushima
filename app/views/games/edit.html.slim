@@ -1,15 +1,11 @@
-section.section
-  .container
-    .heading
-      .content
-        = link_to 'Games', games_path
-        = ' > '
-        = link_to @model.title_ja, @model
-        = ' >'
-    .heading
-      h1.title Editing game
+nav
+  .nav-wrapper
+    .container
+      = link_to 'Games', games_path, class: 'breadcrumb'
+      = link_to @model.title_ja, @model, class: 'breadcrumb'
+      span.breadcrumb Edit Game
 
-section.section
+.section
   .container
     == render 'form'
 

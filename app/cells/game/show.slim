@@ -1,15 +1,17 @@
-.heading
-  .content
-    = link_to 'Games', games_path
-    = ' >'
-  = heading_image
-  h1.title
-    = title_ja
-    = link_to 'Edit', edit_game_path, class: 'button is-outlined is-dark is-small'
-  p.subtitle.is-6 = title_en
-  .content
-    = number_of_players
-    = playing_time
+.row.right-align
+  = link_to 'Edit', edit_game_path, class: 'btn-flat'
+.row
+  - if photo.present?
+    .col.s12.l4.m4 = heading_image
+    .col.s12.l8.m8
+      h1.header = title_ja
+      = heading_title_en
+      = number_of_players
+      = playing_time
+  - else
+    .col
+      h1.header = title_ja
+      = heading_title_en
+      = number_of_players
+      = playing_time
 
-.content
-  .is-clearfix
