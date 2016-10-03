@@ -1,4 +1,21 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  http_basic_authenticate_with name: ENV['BASIC_AUTH_NAME'], password: ENV['BASIC_AUTH_PASSWORD'] if Rails.env.production?
+
+  helper_method :warden, :signed_in?, :current_user
+
+  def signed_in?
+    !current_user.nil?
+  end
+
+  def current_user
+    warden.user
+  end
+
+  def warden
+    request.env['warden']
+  end
+
+  def authenticate!
+    warden.authenticate!
+  end
 end

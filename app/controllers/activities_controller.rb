@@ -1,4 +1,6 @@
 class ActivitiesController < ApplicationController
+  prepend_before_filter :authenticate!, only: [:new, :edit, :create, :update, :destroy]
+
   # GET /activities
   def index
     @activities = Activity.all.order(day: :desc).includes(activity_comments: :game)
