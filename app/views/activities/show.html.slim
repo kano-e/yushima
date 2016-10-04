@@ -12,3 +12,8 @@ nav
       = concept('activity_comment/cell', collection: @activity_comments).(:index)
       - if signed_in?
         == render partial: 'activity_comments/form', locals: { form: @activity_comment_form, model: @activity_comment_form.model }
+javascript:
+  var feedmatic = {
+    event: 'ViewContent',
+    content_ids: [#{raw @activity_comments.first(10).map { |c| "'activity_comment_#{c.id}'" }.join(',')}]
+  };
