@@ -25,9 +25,9 @@
             = f.text_area :detail, class: 'materialize-textarea', length: 100
 
         .row
-          .col.s12.m12.l12.input-field
-            = f.collection_select :game_id, *form.games, include_blank: true
+          .col.s12.m12.l12
             = f.label :game
+            = f.collection_select :game_id, *form.games, { include_blank: true }, class: 'search-select'
 
         .row
           .col.s12.m12.l12
