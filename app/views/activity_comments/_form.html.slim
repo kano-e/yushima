@@ -6,7 +6,7 @@
           - form.errors.full_messages.each do |message|
             li = message
 
-.col.s12.m6.l4
+.col.s12.m12.l4
   = form_for model, url: activity_activity_comments_path(activity_id: model.activity_id) do |f|
     .card.white
       .card-content
