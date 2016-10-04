@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require select2
+//= require select2_locale_ja
 //= require materialize-sprockets
 //= require_tree .
 
@@ -20,11 +22,13 @@
   $(function(){
 
     $('.parallax').parallax();
-    $('select').material_select();
+    $('.input-field select').material_select();
     $('.datepicker').pickadate({
       selectMonths: false, // Creates a dropdown to control month
       selectYears: 1 // Creates a dropdown of 15 years to control year
     });
+
+    $('select.search-select').select2();
 
   }); // end of document ready
 })(jQuery); // end of jQuery name space
