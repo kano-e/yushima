@@ -1,8 +1,12 @@
 - if signed_in?
   .row.right-align
     = link_to 'Edit', edit_activity_path, class: 'btn-flat'
-h1.header.center = day
 .row
-  - games.each do |game|
-    .col
-      = link_to game.title_ja, game, class: 'btn'
+  .col.s12.m12.l12
+    .card.white.horizontal
+      .card-stacked
+        .card-content
+          h1 = day
+        .card-action
+          - games.each do |game|
+            = link_to game.title_ja, game
