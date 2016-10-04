@@ -68,7 +68,9 @@ class Game::Cell < Cell::ViewModel
 
   def heading_image
     return if photo.blank?
-    image_tag(photo.url(:standard), class: 'responsive-img z-depth-2')
+    content_tag(:div, class: 'card-image') do
+      image_tag(photo.url(:standard), class: 'responsive-img')
+    end
   end
 
   def heading_title_en

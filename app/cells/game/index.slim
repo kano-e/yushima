@@ -1,11 +1,12 @@
-.col.s12.m12.l3
-  .card.white
+.col.s12.m12.l12
+  .card.white.horizontal.small
     = index_image
-    .card-content
-      span.card-title = show_link
-      = index_title_en
-    .card-action
-      .row
-        = number_of_players
-        = playing_time
-      p.right-align = show_link('Show')
+    .card-stacked
+      .card-content
+        span.card-title = show_link
+        = index_title_en
+      .card-action
+        .row
+          = number_of_players
+          = playing_time
+        p.right-align = show_link('Show')
