@@ -16,9 +16,17 @@ body
   nav.light-green[role='navigation']
     .nav-wrapper.container
       = link_to 'Feedforce Boardgame Club', root_path, class: 'brand-logo', id: 'logo-container'
-      ul.right.hide-on-med-and-down
-      ul#nav-mobile.side-nav
-      = link_to content_tag(:i, 'menu', class: 'material-icons'), '#', 'data-activates': 'nav-mobile', class: 'button-collapse'
+      /ul.right.hide-on-med-and-down
+      /  - if signed_in?
+      /    li = link_to('Logout', logout_path)
+      /  - else
+      /    li = link_to('Login', '/auth/twitter')
+      /ul#nav-mobile.side-nav
+      /  - if signed_in?
+      /    li = link_to('Logout', logout_path)
+      /  - else
+      /    li = link_to('Login', '/auth/twitter')
+      /= link_to fa_icon('bars'), '#', 'data-activates': 'nav-mobile', class: 'button-collapse'
 
   - if notice
     nav.blue-grey.lighten-5
