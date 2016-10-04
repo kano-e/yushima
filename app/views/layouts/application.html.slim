@@ -26,10 +26,11 @@ body
         .container
           span.grey-text = notice
 
-  = yield
+  main
+    = yield
 
-  noscript
-    iframe[src='https://www.googletagmanager.com/ns.html?id=GTM-5SQJR4' height='0' width='0' style='display:none;visibility:hidden']
+    noscript
+      iframe[src='https://www.googletagmanager.com/ns.html?id=GTM-5SQJR4' height='0' width='0' style='display:none;visibility:hidden']
   footer.page-footer.light-green.lighten-3
     .container
       .row
