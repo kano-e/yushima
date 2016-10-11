@@ -32,7 +32,7 @@ class ActivityComment::Cell < Cell::ViewModel
 
     content_tag(:div, class: 'card-content') do
       content_tag(:div, class: 'content') do
-        show_detail
+        truncate_detail
       end
     end
   end
@@ -43,7 +43,7 @@ class ActivityComment::Cell < Cell::ViewModel
     end
   end
 
-  def show_detail
+  def truncate_detail
     return if detail.blank?
     content_tag(:p, detail, class: 'truncate')
   end
