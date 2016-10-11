@@ -54,7 +54,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   process tags: ['yushima', 'photo', Rails.env]
 
   version :standard do
-    process resize_to_fit: [480, 480]
+    process resize_to_fit: [600, 600]
   end
 
   version :thumbnail do

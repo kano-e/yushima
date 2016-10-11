@@ -11,9 +11,12 @@ class ActivityComment::Cell < Cell::ViewModel
     render :index
   end
 
-  def show_photo
-    return image_tag(photo.url) if photo.present?
-    'No Photo'
+  def standard_image
+    return if photo.blank?
+
+    content_tag(:div, class: 'card-image') do
+      image_tag(photo.url(:standard))
+    end
   end
 
   def card_image

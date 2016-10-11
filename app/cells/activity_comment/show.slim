@@ -1,0 +1,14 @@
+- if signed_in?
+  .row.right-align
+    = link_to 'Edit', edit_activity_activity_comment_path, class: 'btn-flat'
+
+.row
+  .col.s12.m12.l12
+    .card
+      = standard_image
+      .card-stacked
+        .card-content
+          p.flow-text = detail
+        .card-action
+          = activity_link
+          = game_link

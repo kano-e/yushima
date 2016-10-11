@@ -32,6 +32,18 @@ class ActivityComment::Create < ActivityComment::OperationBase
   end
 end
 
+class ActivityComment::Update < ActivityComment::OperationBase
+  action :update
+
+  def model!(params)
+    if params[:activity_id]
+      ActivityComment.where(activity_id: params[:activity_id]).includes(:activity, :game).find(params[:id])
+    else
+      ActivityComment.all.includes(:activity, :game).find(params[:id])
+    end
+  end
+end
+
 class ActivityComment::Destroy < Trailblazer::Operation
   def process(params)
     return invalid! unless params[:id]
