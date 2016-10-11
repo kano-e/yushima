@@ -11,7 +11,7 @@
             p.grey-text.text-darken-3 = message
 
 .col.s12.m12.l12
-  = form_for model, url: activity_activity_comments_path(activity_id: model.activity_id) do |f|
+  = form_for model, url: model.new_record? ? activity_activity_comments_path(activity_id: model.activity.id) : activity_activity_comment_path(model, activity_id: model.activity.id) do |f|
     .card.white
       .card-content
         .row

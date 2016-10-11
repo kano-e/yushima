@@ -35,7 +35,7 @@ class ActivityCommentsController < ApplicationController
   # PATCH/PUT /activity_comments/1
   def update
     run ActivityComment::Update do |op|
-      return redirect_to(op.model, notice: 'Activity comment was successfully updated.')
+      return redirect_to(activity_path(params[:activity_id], anchor: 'activity-comment-form'), notice: 'Activity was successfully updated.')
     end
 
     render :edit
