@@ -1,10 +1,14 @@
+- form ||= @form
+- model ||= @model
 - if form.errors.any?
-  article.message.is-danger
-    .message-header = "#{pluralize(form.errors.count, "error")} prohibited this form from being saved:"
-    .message-body.content
-        ul
+  .row
+    .col
+      .card.red.lighten-4
+        .card-content
+          span.card-title.grey-text.text-darken-4
+            = "#{pluralize(form.errors.count, "error")} prohibited this form from being saved:"
           - form.errors.full_messages.each do |message|
-            li = message
+            p.grey-text.text-darken-3 = message
 
 .col.s12.m12.l12
   = form_for model, url: activity_activity_comments_path(activity_id: model.activity_id) do |f|

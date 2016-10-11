@@ -7,6 +7,10 @@ class ActivityComment::OperationBase < Trailblazer::Operation
     property :game_id
     property :photo
     property :detail, validates: { presence: true, length: { maximum: 100 } }
+
+    def games
+      [Game.pluck(:id, :title_ja), :first, :last]
+    end
   end
 
   def games

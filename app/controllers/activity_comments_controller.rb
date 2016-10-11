@@ -26,10 +26,10 @@ class ActivityCommentsController < ApplicationController
   # POST /activity_comments
   def create
     run ActivityComment::Create do |op|
-      return redirect_to(op.model, notice: 'Activity was successfully created.')
+      return redirect_to(activity_path(params[:activity_id], anchor: 'activity-comment-form'), notice: 'Activity was successfully created.')
     end
 
-    redirect_to @form.model.activity, notice: 'Activity comment was failure created.'
+    render :new
   end
 
   # PATCH/PUT /activity_comments/1
