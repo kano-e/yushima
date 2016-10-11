@@ -1,5 +1,10 @@
-h1 New activity_comment
+nav
+  .nav-wrapper
+    .container
+      = link_to 'Actvities', activities_path, class: 'breadcrumb'
+      = link_to @model.activity.day, activity_path(@model.activity), class: 'breadcrumb'
+      span.breadcrumb New Comment
 
-def = render partial: 'form', locals: { form: @form, model: @model }
-
-= link_to 'Back', activity_comments_path
+.section
+  .container
+    == render 'form', locals: { form: @form, model: @form.model }

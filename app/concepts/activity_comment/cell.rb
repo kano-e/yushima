@@ -11,16 +11,19 @@ class ActivityComment::Cell < Cell::ViewModel
     render :index
   end
 
-  def show_photo
-    return image_tag(photo.url) if photo.present?
-    'No Photo'
+  def standard_image
+    return if photo.blank?
+
+    content_tag(:div, class: 'card-image') do
+      image_tag(photo.url(:standard))
+    end
   end
 
   def card_image
     return if photo.blank?
 
     content_tag(:div, class: 'card-image') do
-      image_tag(photo.url(:thumbnail))
+      show_link(image_tag(photo.url(:thumbnail)))
     end
   end
 
@@ -35,21 +38,14 @@ class ActivityComment::Cell < Cell::ViewModel
   end
 
   def card_action
-    return if game.blank?
-
-    content_tag(:div, class: 'card-action') do
-      case controller
-      when GamesController
-        activity_link
-      when ActivitiesController
-        game_link
-      end
+    content_tag(:div, class: 'card-action right-align') do
+      show_link
     end
   end
 
   def show_detail
     return if detail.blank?
-    content_tag(:p, detail)
+    content_tag(:p, detail, class: 'truncate')
   end
 
   def game_link
@@ -61,5 +57,9 @@ class ActivityComment::Cell < Cell::ViewModel
     return ' ' if activity.blank?
 
     link_to activity.day, activity
+  end
+
+  def show_link(text = nil)
+    link_to text || 'Show', activity_activity_comment_path(model, activity_id: activity.id)
   end
 end

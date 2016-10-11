@@ -7,6 +7,10 @@ class ActivityComment::OperationBase < Trailblazer::Operation
     property :game_id
     property :photo
     property :detail, validates: { presence: true, length: { maximum: 100 } }
+
+    def games
+      [Game.pluck(:id, :title_ja), :first, :last]
+    end
   end
 
   def games
@@ -28,6 +32,18 @@ class ActivityComment::Create < ActivityComment::OperationBase
       Activity.find(params[:id]).activity_comments.build
     else
       Activity.find(params[:activity_id]).activity_comments.build
+    end
+  end
+end
+
+class ActivityComment::Update < ActivityComment::OperationBase
+  action :update
+
+  def model!(params)
+    if params[:activity_id]
+      ActivityComment.where(activity_id: params[:activity_id]).includes(:activity, :game).find(params[:id])
+    else
+      ActivityComment.all.includes(:activity, :game).find(params[:id])
     end
   end
 end

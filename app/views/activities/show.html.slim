@@ -10,7 +10,7 @@ nav
   .container
     .row
       = concept('activity_comment/cell', collection: @activity_comments).(:index)
-    .row
+    .row#activity-comment-form
       - if signed_in?
         == render partial: 'activity_comments/form', locals: { form: @activity_comment_form, model: @activity_comment_form.model }
 javascript:

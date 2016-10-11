@@ -1,8 +1,12 @@
-h1 Editing activity_comment
+nav
+  .nav-wrapper
+    .container
+      = link_to 'Actvities', activities_path, class: 'breadcrumb'
+      = link_to @model.activity.day, activity_path(@model.activity), class: 'breadcrumb'
+      = link_to 'Show Comment', activity_activity_comment_path(@model, activity_id: @model.activity.id), class: 'breadcrumb'
+      span.breadcrumb Edit Comment
 
-== render 'form'
-
-= link_to 'Show', @activity_comment
-'|
-= link_to 'Back', activity_comments_path
+.section
+  .container
+    == render 'form', locals: { form: @form, model: @form.model }
 

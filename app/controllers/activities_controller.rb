@@ -34,7 +34,7 @@ class ActivitiesController < ApplicationController
 
   # PATCH/PUT /activities/1
   def update
-    run Activity::Create do |op|
+    run Activity::Update do |op|
       return redirect_to(op.model, notice: 'Activity was successfully updated.')
     end
 
@@ -43,10 +43,10 @@ class ActivitiesController < ApplicationController
 
   # DELETE /activities/1
   def destroy
-    run Game::Destroy do |op|
+    run Activity::Destroy do |op|
       return redirect_to(activities_path, notice: 'Activity was successfully destroyed.')
     end
 
-    redirect_back(fallback_location: game_path(params[:id]))
+    redirect_back(fallback_location: activity_path(params[:id]))
   end
 end
