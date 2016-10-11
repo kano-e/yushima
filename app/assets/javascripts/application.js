@@ -22,6 +22,7 @@
   $(function(){
 
     $('.parallax').parallax();
+    $('.button-collapse').sideNav();
     $('.input-field select').material_select();
     $('.datepicker').pickadate({
       selectMonths: false, // Creates a dropdown to control month

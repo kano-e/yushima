@@ -17,18 +17,14 @@ head
 body
   nav.light-green[role='navigation']
     .nav-wrapper.container
-      = link_to 'Feedforce Boardgame Club', root_path, class: 'brand-logo', id: 'logo-container'
-      /ul.right.hide-on-med-and-down
-      /  - if signed_in?
-      /    li = link_to('Logout', logout_path)
-      /  - else
-      /    li = link_to('Login', '/auth/twitter')
-      /ul#nav-mobile.side-nav
-      /  - if signed_in?
-      /    li = link_to('Logout', logout_path)
-      /  - else
-      /    li = link_to('Login', '/auth/twitter')
-      /= link_to fa_icon('bars'), '#', 'data-activates': 'nav-mobile', class: 'button-collapse'
+      = link_to 'Feedforce Boardgame Club', root_path, id: 'logo-container'
+      ul.right.hide-on-med-and-down
+        li = link_to 'Activities', activities_path
+        li = link_to 'Games', games_path
+      ul#nav-mobile.side-nav
+        li = link_to 'Activities', activities_path
+        li = link_to 'Games', games_path
+      = link_to fa_icon('bars'), '#', 'data-activates': 'nav-mobile', class: 'button-collapse right'
 
   - if notice
     nav.blue-grey.lighten-5
@@ -44,12 +40,17 @@ body
   footer.page-footer.light-green.lighten-3
     .container
       .row
-        .col.l4.s12
+        .col.l10.s10.m10
           a.waves-effect.waves-light.btn-floating.light-green[href='https://twitter.com/ff_boardgame']
             = fa_icon('twitter')
           | &nbsp;
           a.waves-effect.waves-light.btn-floating.light-green[href='https://business.facebook.com/feedforce.boardgame/']
             = fa_icon('facebook')
+        .col.l2.s2.m2
+          - if signed_in?
+            = link_to('Logout', logout_path, class: 'white-text')
+          - else
+            = link_to('Login', '/auth/twitter', class: 'white-text')
     .footer-copyright
       .container
         | Feedforce Boardgame Club
