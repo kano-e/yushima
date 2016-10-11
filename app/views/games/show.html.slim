@@ -4,7 +4,11 @@ nav
       = link_to 'Games', games_path, class: 'breadcrumb'
       span.breadcrumb Show Game
 .section.no-pad-bot
-  .container = concept('game/cell', @model).()
+  .container
+    - if signed_in?
+      .row.right-align
+        = link_to 'Edit', edit_game_path, class: 'btn-flat'
+    = concept('game/cell', @model).()
 
 .section
   .container
