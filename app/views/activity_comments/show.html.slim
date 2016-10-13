@@ -7,3 +7,6 @@ nav
 .section.no-pad-bot
   .container = concept('activity_comment/cell', @model).()
 
+- content_for :head do
+  = concept('activity_comment/cell', @model).(:meta)
+

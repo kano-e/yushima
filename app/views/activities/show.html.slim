@@ -18,3 +18,6 @@ javascript:
     event: 'ViewContent',
     content_ids: [#{raw @activity_comments.first(10).map { |c| "'activity_comment_#{c.id}'" }.join(',')}]
   };
+
+- content_for :head do
+  = concept('activity/cell', @model).(:meta)

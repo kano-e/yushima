@@ -11,6 +11,40 @@ class ActivityComment::Cell < Cell::ViewModel
     render :index
   end
 
+  def meta
+    render :meta
+  end
+
+  def title_tag
+    content_tag(:title, detail)
+  end
+
+  def og_title_tag
+    meta_tag(:title, detail)
+  end
+
+  def og_url_tag
+    og_tag(:url, activity_activity_comment_url(model, activity_id: activity.id))
+  end
+
+  def og_description_tag
+    text = "#{activity.day}の活動"
+    if game
+      text += " #{game.title_ja}"
+    end
+    og_tag(:description, text)
+  end
+
+  def og_image_tag
+    return og_tag(:image, photo.url(:ll)) if photo.present?
+
+    if game && game.photo.present?
+      return og_tag(:image, game.photo.url(:ll))
+    end
+
+    default_og_image_tag
+  end
+
   def show_image
     return if photo.blank?
 
