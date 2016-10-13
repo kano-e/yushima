@@ -63,6 +63,10 @@ class PhotoUploader < CarrierWave::Uploader::Base
     process resize_to_fit: [960, 960]
   end
 
+  version :m do
+    process resize_to_fit: [480, 480]
+  end
+
   # square medium
   version :sm do
     process resize_to_fill: [480, 480]

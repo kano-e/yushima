@@ -15,6 +15,10 @@ class Game::Cell < Cell::ViewModel
     render :index
   end
 
+  def exists_players_or_time?
+    min_players || max_players || min_minutes || max_minutes
+  end
+
   def number_of_players
     return if !min_players && !max_players
 
@@ -73,13 +77,13 @@ class Game::Cell < Cell::ViewModel
 
   def heading_image
     return if photo.blank?
-    content_tag(:div, class: 'card-image') do
-      image_tag(photo.url(:l), class: 'responsive-img')
-    end
+    image_tag(photo.url(:m), class: 'responsive-img')
   end
 
   def heading_title_en
     return if title_en.blank?
-    content_tag(:p, title_en, class: 'flow-text blue-grey-text')
+    content_tag(:p, class: 'flow-text blue-grey-text') do
+      content_tag(:small, title_en)
+    end
   end
 end
