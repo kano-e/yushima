@@ -11,11 +11,11 @@ class ActivityComment::Cell < Cell::ViewModel
     render :index
   end
 
-  def standard_image
+  def show_image
     return if photo.blank?
 
     content_tag(:div, class: 'card-image') do
-      image_tag(photo.url(:standard))
+      image_tag(photo.url(:l))
     end
   end
 
@@ -23,7 +23,7 @@ class ActivityComment::Cell < Cell::ViewModel
     return if photo.blank?
 
     content_tag(:div, class: 'card-image') do
-      show_link(image_tag(photo.url(:thumbnail)))
+      show_link(image_tag(photo.url(:sm)))
     end
   end
 

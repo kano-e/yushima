@@ -6,7 +6,7 @@
         .row.valign
           - images.each do |image|
             .col.s4.m4.l4
-              = image_tag image.url(:thumbnail), class: 'responsive-img'
+              = image_tag image.url(:ss), class: 'responsive-img'
       .row
         - games.each do |game|
           .col.teal-text = game.title_ja

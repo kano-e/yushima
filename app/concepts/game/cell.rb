@@ -62,7 +62,7 @@ class Game::Cell < Cell::ViewModel
   def index_image
     return if photo.blank?
     content_tag(:div, class: 'col s3 m3 l2 right') do
-      show_link(image_tag(photo.url(:thumbnail), class: 'responsive-img circle'))
+      show_link(image_tag(photo.url(:ss), class: 'responsive-img circle'))
     end
   end
 
@@ -74,7 +74,7 @@ class Game::Cell < Cell::ViewModel
   def heading_image
     return if photo.blank?
     content_tag(:div, class: 'card-image') do
-      image_tag(photo.url(:standard), class: 'responsive-img')
+      image_tag(photo.url(:l), class: 'responsive-img')
     end
   end
 
