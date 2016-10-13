@@ -15,6 +15,21 @@ class ActivityComment::Cell < Cell::ViewModel
     render :meta
   end
 
+  def meta_image
+    return photo.url(:ll) if photo.present?
+    return game.photo.url(:ll) if game && game.photo.present?
+    nil
+  end
+
+  def meta_description
+    text = "#{activity.day}の活動"
+    if game
+      text += " #{game.title_ja}"
+    end
+
+    text
+  end
+
   def title_tag
     content_tag(:title, detail)
   end
@@ -28,21 +43,25 @@ class ActivityComment::Cell < Cell::ViewModel
   end
 
   def og_description_tag
-    text = "#{activity.day}の活動"
-    if game
-      text += " #{game.title_ja}"
-    end
-    og_tag(:description, text)
+    og_tag(:description, meta_description)
   end
 
   def og_image_tag
-    return og_tag(:image, photo.url(:ll)) if photo.present?
-
-    if game && game.photo.present?
-      return og_tag(:image, game.photo.url(:ll))
-    end
-
+    return og_tag(:image, meta_image) if meta_image
     default_og_image_tag
+  end
+
+  def tw_title_tag
+    tw_tag(:title, detail)
+  end
+
+  def tw_description_tag
+    tw_tag(:description, meta_description)
+  end
+
+  def tw_image_tag
+    return tw_tag(:image, meta_image) if meta_image
+    default_tw_image_tag
   end
 
   def show_image

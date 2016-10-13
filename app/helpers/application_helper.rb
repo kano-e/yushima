@@ -8,11 +8,27 @@ module ApplicationHelper
   end
 
   def og_tag(tag, content)
-    meta_tag("og:#{tag}", content)
+    meta_tag(content, property: "og:#{tag}")
   end
 
-  def meta_tag(property, content)
-    tag(:meta, property: property, content: content)
+  def tw_card_tag
+    tw_tag(:card, 'summary_large_image')
+  end
+
+  def tw_site_tag
+    tw_tag(:site, '@ff_boardgame')
+  end
+
+  def default_tw_image_tag
+    tw_tag(:image, image_url('feedforce-boardgame-club.jpg'))
+  end
+
+  def tw_tag(name, content)
+    meta_tag(content, name: "twitter:#{name}")
+  end
+
+  def meta_tag(content, attrs = {})
+    tag(:meta, attrs.merge(content: content))
   end
 
   def signed_in?
