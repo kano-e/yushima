@@ -56,6 +56,20 @@ class Game::Cell < Cell::ViewModel
     "#{title_ja} - フィードフォース ボドゲ部 ボドゲリスト"
   end
 
+  def meta_image
+    return photo.url(:ll) if photo.present?
+
+    if comment = activity_comments.select { |comment| comment.photo.present? }.first
+      return comment.photo.url(:ll)
+    end
+
+    nil
+  end
+
+  def meta_description
+    [title_ja, title_en.presence, number_of_players_text, playing_time_text].compact.join(' / ')
+  end
+
   def title_tag
     content_tag(:title, meta_title)
   end
@@ -69,17 +83,25 @@ class Game::Cell < Cell::ViewModel
   end
 
   def og_description_tag
-    og_tag(:description, [title_ja, title_en.presence, number_of_players_text, playing_time_text].compact.join(' / '))
+    og_tag(:description, meta_description)
   end
 
   def og_image_tag
-    return og_tag(:image, photo.url(:ll)) if photo.present?
-
-    if comment = activity_comments.select { |comment| comment.photo.present? }.first
-      return og_tag(:image, comment.photo.url(:ll))
-    end
-
+    return og_tag(:image, meta_image) if meta_image
     default_og_image_tag
+  end
+
+  def tw_title_tag
+    tw_tag(:title, meta_title)
+  end
+
+  def tw_description_tag
+    tw_tag(:description, meta_description)
+  end
+
+  def tw_image_tag
+    return tw_tag(:image, meta_image) if meta_image
+    default_tw_image_tag
   end
 
   def exists_players_or_time?

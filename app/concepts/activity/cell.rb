@@ -17,6 +17,22 @@ class Activity::Cell < Cell::ViewModel
     "#{day}の活動 - フィードフォース ボドゲ部"
   end
 
+  def meta_description
+    text = "フィードフォース ボドゲ部 #{day}の活動です。"
+    if activity_comments.map { |comment| comment.game }.present?
+      text += activity_comments.map { |comment| comment.game&.title_ja }.compact.join(', ')
+      text += ' で遊びました！'
+    end
+
+    text
+  end
+
+  def meta_image
+    if comment = activity_comments.select { |comment| comment.photo.present? }.first
+      return comment.photo.url(:ll)
+    end
+  end
+
   def title_tag
     content_tag(:title, meta_title)
   end
@@ -30,15 +46,29 @@ class Activity::Cell < Cell::ViewModel
   end
 
   def og_description_tag
-    og_tag(:description, "フィードフォース ボドゲ部で#{day}に遊んだゲームやプレイの様子です。")
+    og_tag(:description, meta_description)
   end
 
   def og_image_tag
-    if comment = activity_comments.select { |comment| comment.photo.present? }.first
-      return og_tag(:image, comment.photo.url(:ll))
-    end
-
+    return og_tag(:image, meta_image) if meta_image
     default_og_image_tag
+  end
+
+  def tw_title_tag
+    tw_tag(:title, meta_title)
+  end
+
+  def tw_url_tag
+    tw_tag(:url, activity_url(@model))
+  end
+
+  def tw_description_tag
+    tw_tag(:description, meta_description)
+  end
+
+  def tw_image_tag
+    return tw_tag(:image, meta_image) if meta_image
+    default_tw_image_tag
   end
 
   def show_link(text = nil)

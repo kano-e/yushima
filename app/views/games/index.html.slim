@@ -16,8 +16,14 @@ nav
 
 - content_for :head do
   title フィードフォース ボドゲ部 活動記録
-  = og_tag(:url, gamed_url)
+  = og_tag(:url, games_url)
   = og_tag(:title, 'フィードフォース ボドゲ部 ゲームリスト')
   = og_tag(:description, 'フィードフォース ボドゲ部の所持ゲーム、過去に遊んだことのあるゲームの一覧です。所持していないゲームも含まれますので、ご注意ください。')
   = default_og_image_tag
   = og_locale_tag
+
+  = tw_card_tag
+  = tw_site_tag
+  = tw_tag(:title, 'フィードフォース ボドゲ部 ゲームリスト')
+  = tw_tag(:description, 'フィードフォース ボドゲ部の所持ゲーム、過去に遊んだことのあるゲームの一覧です。所持していないゲームも含まれますので、ご注意ください。')
+  = default_tw_image_tag
