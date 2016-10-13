@@ -20,7 +20,7 @@ class ActivityComment::Cell < Cell::ViewModel
   end
 
   def og_title_tag
-    meta_tag(:title, detail)
+    og_tag(:title, detail)
   end
 
   def og_url_tag
