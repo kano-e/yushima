@@ -11,6 +11,7 @@ class Game::Cell < Cell::ViewModel
   property :min_minutes
   property :max_minutes
   property :photo
+  property :activity_comments
 
   def index
     render :index
