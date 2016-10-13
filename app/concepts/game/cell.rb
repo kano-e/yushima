@@ -2,6 +2,7 @@ class Game::Cell < Cell::ViewModel
   include ::Cell::Slim
   include ApplicationHelper
   include FontAwesome::Rails::IconHelper
+  include ActionView::Helpers::CaptureHelper
 
   property :title_ja
   property :title_en
@@ -15,7 +16,11 @@ class Game::Cell < Cell::ViewModel
     render :index
   end
 
-  def number_of_players
+  def meta
+    render :meta
+  end
+
+  def number_of_players_text
     return if !min_players && !max_players
 
     text = if min_players && max_players
@@ -29,13 +34,9 @@ class Game::Cell < Cell::ViewModel
     else
       ' 〜 %d 人' % [max_players] if max_players
     end
-
-    content_tag(:div, class: 'col') do
-      fa_icon('users') + text
-    end
   end
 
-  def playing_time
+  def playing_time_text
     return if !min_minutes && !max_minutes
 
     text = if min_minutes && max_minutes
@@ -49,9 +50,55 @@ class Game::Cell < Cell::ViewModel
     else
       ' 〜 %d 分' % [max_minutes] if max_minutes
     end
+  end
+
+  def meta_title
+    "#{title_ja} - フィードフォース ボドゲ部 ボドゲリスト"
+  end
+
+  def title_tag
+    content_tag(:title, meta_title)
+  end
+
+  def og_title_tag
+    og_tag(:title, meta_title)
+  end
+
+  def og_url_tag
+    og_tag(:url, game_url(model))
+  end
+
+  def og_description_tag
+    og_tag(:description, [title_ja, title_en.presence, number_of_players_text, playing_time_text].compact.join(' / '))
+  end
+
+  def og_image_tag
+    return og_tag(:image, photo.url(:ll)) if photo.present?
+
+    if comment = activity_comments.select { |comment| comment.photo.present? }.first
+      return og_tag(:image, comment.photo.url(:ll))
+    end
+
+    default_og_image_tag
+  end
+
+  def exists_players_or_time?
+    min_players || max_players || min_minutes || max_minutes
+  end
+
+  def number_of_players
+    return if !min_players && !max_players
 
     content_tag(:div, class: 'col') do
-      fa_icon('clock-o') + text
+      fa_icon('users') + number_of_players_text
+    end
+  end
+
+  def playing_time
+    return if !min_minutes && !max_minutes
+
+    content_tag(:div, class: 'col') do
+      fa_icon('clock-o') + playing_time_text
     end
   end
 
@@ -61,8 +108,8 @@ class Game::Cell < Cell::ViewModel
 
   def index_image
     return if photo.blank?
-    content_tag(:div, class: 'col s2 m2 l2 right') do
-      show_link(image_tag(photo.url(:thumbnail), class: 'responsive-img circle small'))
+    content_tag(:div, class: 'col s3 m3 l2 right') do
+      show_link(image_tag(photo.url(:ss), class: 'responsive-img circle'))
     end
   end
 
@@ -73,13 +120,13 @@ class Game::Cell < Cell::ViewModel
 
   def heading_image
     return if photo.blank?
-    content_tag(:div, class: 'card-image') do
-      image_tag(photo.url(:standard), class: 'responsive-img')
-    end
+    image_tag(photo.url(:m), class: 'responsive-img')
   end
 
   def heading_title_en
     return if title_en.blank?
-    content_tag(:p, title_en, class: 'flow-text blue-grey-text')
+    content_tag(:p, class: 'flow-text blue-grey-text') do
+      content_tag(:small, title_en)
+    end
   end
 end

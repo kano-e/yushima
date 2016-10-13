@@ -1,6 +1,8 @@
 doctype html
 html
 head
+  = yield :head
+
   title Feedforce Boardgame Club
   = csrf_meta_tags
   = stylesheet_link_tag :application, medis: 'all', 'data-turbolinks-track': 'reload'

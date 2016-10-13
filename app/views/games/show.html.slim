@@ -15,3 +15,5 @@ nav
     .row
       = concept('activity_comment/cell', collection: @activity_comments).(:index)
 
+- content_for :head do
+  = concept('game/cell', @model).(:meta)

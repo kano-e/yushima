@@ -9,6 +9,38 @@ class Activity::Cell < Cell::ViewModel
     render :index
   end
 
+  def meta
+    render :meta
+  end
+
+  def meta_title
+    "#{day}の活動 - フィードフォース ボドゲ部"
+  end
+
+  def title_tag
+    content_tag(:title, meta_title)
+  end
+
+  def og_title_tag
+    og_tag(:title, meta_title)
+  end
+
+  def og_url_tag
+    og_tag(:url, activity_url(@model))
+  end
+
+  def og_description_tag
+    og_tag(:description, "フィードフォース ボドゲ部で#{day}に遊んだゲームやプレイの様子です。")
+  end
+
+  def og_image_tag
+    if comment = activity_comments.select { |comment| comment.photo.present? }.first
+      return og_tag(:image, comment.photo.url(:ll))
+    end
+
+    default_og_image_tag
+  end
+
   def show_link(text = nil)
     link_to text || day, model
   end

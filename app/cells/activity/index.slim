@@ -1,13 +1,12 @@
 .col.s12.m12.l6
-  .card.white.medium
+  .card.white.small
     .card-content
       span.card-title = show_link
+      .valign-wrapper
+        .row.valign
+          - images.each do |image|
+            .col.s4.m4.l4
+              = image_tag image.url(:ss), class: 'responsive-img'
       .row
         - games.each do |game|
           .col.teal-text = game.title_ja
-    .card-action.right-align
-      .row.valign-wrapper
-        - images.each do |image|
-          .col.s4.m4.l4
-            = image_tag image.url(:thumbnail), class: 'responsive-img'
-      = show_link('Show')
