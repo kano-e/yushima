@@ -30,7 +30,13 @@ class Activity::Cell < Cell::ViewModel
   end
 
   def og_description_tag
-    og_tag(:description, "フィードフォース ボドゲ部で#{day}に遊んだゲームやプレイの様子です。")
+    text = "フィードフォース ボドゲ部 #{day}の活動です。"
+    if activity_comments.map { |comment| comment.game }.present?
+      text += activity_comments.map { |comment| comment.game&.title_ja }.compact.join(', ')
+      text += ' で遊びました！'
+    end
+
+    og_tag(:description, text)
   end
 
   def og_image_tag
