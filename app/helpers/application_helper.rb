@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def og_locale_tag
+    og_tag(:locale, 'ja_JP')
+  end
+
+  def default_og_image_tag
+    og_tag(:image, image_url('feedforce-boardgame-club.jpg'))
+  end
+
   def og_tag(tag, content)
     meta_tag("og:#{tag}", content)
   end
