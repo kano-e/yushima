@@ -8,3 +8,11 @@
   .section
     .row
       = concept('activity/cell', collection: @activities).(:index)
+
+- content_for :head do
+  title フィードフォース ボドゲ部 - Feedforce Boardgame Club
+  = og_tag(:url, root_url)
+  = og_tag(:title, 'フィードフォース ボドゲ部')
+  = og_tag(:description, '株式会社フィードフォースのボドゲ部です。毎週水曜日の業後に会社のカフェスペースにてボードゲームで遊んでいます。社外からの参加者も受け付けていますので、一緒に遊びたい方はお声をおかけください！')
+  = default_og_image_tag
+  = og_locale_tag
