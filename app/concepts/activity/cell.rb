@@ -20,7 +20,7 @@ class Activity::Cell < Cell::ViewModel
   def meta_description
     text = "フィードフォース ボドゲ部 #{day}の活動です。"
     if activity_comments.map { |comment| comment.game }.present?
-      text += activity_comments.map { |comment| comment.game&.title_ja }.compact.join(', ')
+      text += activity_comments.map { |comment| comment.game&.title_ja }.compact.uniq.join(', ')
       text += ' で遊びました！'
     end
 
