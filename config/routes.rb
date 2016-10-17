@@ -2,6 +2,7 @@
 #
 #                         Prefix Verb   URI Pattern                                                   Controller#Action
 #                                GET    /auth/:providr/callback(.:format)                             sessions#create
+#                         logout GET    /logout(.:format)                                             sessions#destroy
 #     activity_activity_comments GET    /activities/:activity_id/activity_comments(.:format)          activity_comments#index
 #                                POST   /activities/:activity_id/activity_comments(.:format)          activity_comments#create
 #  new_activity_activity_comment GET    /activities/:activity_id/activity_comments/new(.:format)      activity_comments#new
