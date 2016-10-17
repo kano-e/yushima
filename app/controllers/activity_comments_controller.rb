@@ -49,4 +49,10 @@ class ActivityCommentsController < ApplicationController
 
     redirect_back(fallback_location: activity_activity_comment_path(params[:id], activity_id: params[:activity_id]))
   end
+
+  private
+
+  def params!(params)
+    params.merge(current_user: current_user)
+  end
 end
