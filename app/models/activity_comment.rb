@@ -31,6 +31,7 @@
 class ActivityComment < ApplicationRecord
   belongs_to :activity
   belongs_to :game, optional: true
+  belongs_to :user
 
   attr_accessor :photo_cache
 
