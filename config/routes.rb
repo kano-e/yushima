@@ -42,5 +42,7 @@ Rails.application.routes.draw do
 
   resources :games
 
+  resources :pages, only: [:show]
+
   root to: 'home#index'
 end
