@@ -14,6 +14,7 @@
 # **`photo`**        | `string`           |
 # **`detail`**       | `string`           |
 # **`public_str`**   | `string`           | `not null`
+# **`user_id`**      | `string`           |
 #
 # ### Indexes
 #
@@ -23,11 +24,14 @@
 #     * **`game_id`**
 # * `index_activity_comments_on_public_str` (_unique_):
 #     * **`public_str`**
+# * `index_activity_comments_on_user_id`:
+#     * **`user_id`**
 #
 
 class ActivityComment < ApplicationRecord
   belongs_to :activity
   belongs_to :game, optional: true
+  belongs_to :user
 
   attr_accessor :photo_cache
 
