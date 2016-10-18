@@ -1,0 +1,58 @@
+#index-banner.parallax-container
+  .section.no-pad-bot
+    .container
+  .parallax
+    = image_tag('feedforce-boardgame-club.jpg')
+
+.container
+  .section
+    .row
+      .col.s12.m8.l8
+        p フィードフォース ボドゲ部は、株式会社フィードフォースのボードゲームを遊ぶ集まりです。
+        p 毎週水曜日の業後に、会社のカフェスペースに集まって遊んでいます。
+        p 参加者は社員が中心ですが、社外からの参加も受け付けています。
+        p 一緒にボドゲで遊びたい方は、ぜひご連絡ください。一緒に遊びましょう。
+      .col.s12.m4.l4 = image_tag('about01.jpg', class: 'responsive-img')
+    .row
+      .col.s12.m4.l4 = image_tag('about02.jpg', class: 'responsive-img')
+      .col.s12.m8.l8
+        p
+          = link_to('株式会社フィードフォース', 'https://www.feedforce.jp/corporate/access/', target: '_brank')
+          br
+          | 湯島駅近く。湯島ファーストビルの5Fです。
+        p
+          | 毎週水曜日 19:30 頃から。
+          br
+          | ビルの施錠があるため、到着が20時過ぎる場合にはご連絡ください。
+        p.grey-text.text-darken-2
+          | ※ 会社・社員の都合で、社外に遊びに行ったり活動をお休みすることもあります。
+          br
+          | ※ 防犯上、事前のご連絡は必須です。ご協力をお願いいたします。
+    .row
+      .col.s12.m8.l8
+        p
+          | Twitter で
+          = link_to('@ff_boardgame', 'https://twitter.com/ff_boardgame', target: '_blank')
+          | あてに参加希望の日を添えてご連絡ください。
+          br
+          = link_to('Tweet to @ff_boardgame', 'https://twitter.com/intent/tweet?screen_name=ff_boardgame&text=%E5%8F%82%E5%8A%A0%E5%B8%8C%E6%9C%9B', class: 'twitter-mention-button', 'data-related': 'ff_boardgame', 'data-size': 'large', 'data-dnt': 'true')
+        javascript:
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
+        p お近くにフィードフォース社員がいましたら、社員を通じての連絡でも大丈夫です。
+      .col.s12.m4.l4 = image_tag('about03.jpg', class: 'responsive-img')
+
+
+- content_for :head do
+  title フィードフォース ボドゲ部 - Feedforce Boardgame Club
+  = og_tag(:url, root_url)
+  = og_tag(:title, 'フィードフォース ボドゲ部')
+  = og_tag(:description, '株式会社フィードフォースのボドゲ部です。毎週水曜日の業後に会社のカフェスペースにてボードゲームで遊んでいます。社外からの参加者も受け付けていますので、一緒に遊びたい方はお声をおかけください！')
+  = default_og_image_tag
+  = og_locale_tag
+
+  = tw_card_tag
+  = tw_site_tag
+  = tw_tag(:title, 'フィードフォース ボドゲ部')
+  = tw_tag(:description, '株式会社フィードフォースのボドゲ部です。毎週水曜日の業後に会社のカフェスペースにてボードゲームで遊んでいます。社外からの参加者も受け付けていますので、一緒に遊びたい方はお声をおかけください！')
+  = default_tw_image_tag
