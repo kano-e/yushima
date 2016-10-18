@@ -39,21 +39,28 @@ body
 
     noscript
       iframe[src='https://www.googletagmanager.com/ns.html?id=GTM-5SQJR4' height='0' width='0' style='display:none;visibility:hidden']
+
+  .section
+    .container
+      .center
+        = link_to('フィードフォース ボドゲ部に遊びにきませんか？', page_path('about'))
   footer.page-footer.light-green.lighten-3
     .container
       .row
-        .col.l10.s10.m10
+        .col
           a.waves-effect.waves-light.btn-floating.light-green[href='https://twitter.com/ff_boardgame' target='_brank']
             = fa_icon('twitter')
           | &nbsp;
           a.waves-effect.waves-light.btn-floating.light-green[href='https://www.facebook.com/feedforce.boardgame.club/' target='_brank']
             = fa_icon('facebook')
-        .col.l2.s2.m2
-          - if signed_in?
-            = link_to('Logout', logout_path, class: 'white-text')
-          - else
-            = link_to('Login', '/auth/twitter', class: 'white-text')
     .footer-copyright
       .container
-        | Feedforce Boardgame Club
+        .row
+          .col.s12.m12.l10
+            | Feedforce Boardgame Club
+          .col.s12.m12.l2
+            - if signed_in?
+              = link_to('Logout', logout_path, class: 'white-text')
+            - else
+              = link_to('Login', '/auth/twitter', class: 'white-text')
 
