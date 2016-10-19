@@ -42,6 +42,12 @@
         p お近くにフィードフォース社員がいましたら、社員を通じての連絡でも大丈夫です。
       .col.s12.m4.l4 = image_tag('about03.jpg', class: 'responsive-img')
 
+- if @event_item_ids.present?
+  javascript:
+    var feedmatic = {
+      event: 'AddToCart',
+      content_ids: ["#{raw @event_item_ids.join('","')}"]
+    };
 
 - content_for :head do
   title フィードフォース ボドゲ部 - Feedforce Boardgame Club
