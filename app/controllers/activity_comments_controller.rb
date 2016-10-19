@@ -11,6 +11,7 @@ class ActivityCommentsController < ApplicationController
   def show
     @activity = Activity.find(params[:activity_id])
     present ActivityComment::Update
+    set_item_id
   end
 
   # GET /activity_comments/new
@@ -54,5 +55,14 @@ class ActivityCommentsController < ApplicationController
 
   def params!(params)
     params.merge(current_user: current_user)
+  end
+
+  def set_item_id
+    event_item_ids = session[:event_item_ids] || []
+    item_id = "activity_comment_#{@model.id}"
+    return if event_item_ids.include?(item_id)
+
+    event_item_ids << item_id
+    session[:event_item_ids] = event_item_ids
   end
 end
