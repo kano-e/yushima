@@ -62,7 +62,7 @@ class ActivityCommentsController < ApplicationController
     item_id = "activity_comment_#{@model.id}"
     return if event_item_ids.include?(item_id)
 
-    event_item_ids << item_id
-    session[:event_item_ids] = event_item_ids
+    event_item_ids = [ item_id ] + event_item_ids
+    session[:event_item_ids] = event_item_ids.first(10)
   end
 end
