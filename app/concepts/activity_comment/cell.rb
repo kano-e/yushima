@@ -65,18 +65,28 @@ class ActivityComment::Cell < Cell::ViewModel
   end
 
   def show_image
-    return if photo.blank?
-
     content_tag(:div, class: 'card-image') do
-      image_tag(photo.url(:l))
+      image_url = if photo.present?
+                    photo.url(:l)
+                  elsif game && game.photo.present?
+                    game.photo.url(:l)
+                  else
+                    'no-image-for-comment.jpg'
+                  end
+      show_link(image_tag(image_url))
     end
   end
 
   def card_image
-    return if photo.blank?
-
     content_tag(:div, class: 'card-image') do
-      show_link(image_tag(photo.url(:sm)))
+      image_url = if photo.present?
+                    photo.url(:sm)
+                  elsif game && game.photo.present?
+                    game.photo.url(:sm)
+                  else
+                    'no-image-for-comment.jpg'
+                  end
+      show_link(image_tag(image_url))
     end
   end
 
