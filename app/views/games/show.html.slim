@@ -15,5 +15,11 @@ nav
     .row
       = concept('activity_comment/cell', collection: @activity_comments).(:index)
 
+javascript:
+  var feedmatic = {
+    event: 'ViewContent',
+    content_ids: [#{raw @activity_comments.first(10).map { |ac| %W|"activity_comment_#{ac.id}"| }.join(',') }]
+  };
+
 - content_for :head do
   = concept('game/cell', @model).(:meta)
