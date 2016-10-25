@@ -26,6 +26,11 @@ body
       ul#nav-mobile.side-nav
         li = link_to 'Activities', activities_path
         li = link_to 'Games', games_path
+        li
+          - if signed_in?
+            = link_to('Logout', logout_path, class: 'white-text')
+          - else
+            = link_to('Login', '/auth/twitter', class: 'white-text')
       = link_to fa_icon('bars'), '#', 'data-activates': 'nav-mobile', class: 'button-collapse right'
 
   - if notice
