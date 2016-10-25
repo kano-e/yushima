@@ -28,9 +28,9 @@ body
         li = link_to 'Games', games_path
         li
           - if signed_in?
-            = link_to('Logout', logout_path, class: 'white-text')
+            = link_to 'Logout', logout_path
           - else
-            = link_to('Login', '/auth/twitter', class: 'white-text')
+            = link_to 'Login', '/auth/twitter'
       = link_to fa_icon('bars'), '#', 'data-activates': 'nav-mobile', class: 'button-collapse right'
 
   - if notice
