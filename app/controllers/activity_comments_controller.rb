@@ -58,11 +58,6 @@ class ActivityCommentsController < ApplicationController
   end
 
   def set_item_id
-    event_item_ids = session[:event_item_ids] || []
-    item_id = "activity_comment_#{@model.id}"
-    return if event_item_ids.include?(item_id)
-
-    event_item_ids = [ item_id ] + event_item_ids
-    session[:event_item_ids] = event_item_ids.first(10)
+    record_event_item_ids("activity_comment_#{@model.id}")
   end
 end

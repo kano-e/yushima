@@ -10,6 +10,7 @@ class GamesController < ApplicationController
   def show
     present Game::Update
     @activity_comments = @model.activity_comments.includes(:activity).order(id: :desc).limit(20).all
+    set_item_id
   end
 
   # GET /games/new
@@ -47,5 +48,11 @@ class GamesController < ApplicationController
     end
 
     redirect_back(fallback_location: game_path(params[:id]))
+  end
+
+  private
+
+  def set_item_id
+    record_event_item_ids(*@activity_comments.map { |c| "activity_comment_#{c.id}" })
   end
 end

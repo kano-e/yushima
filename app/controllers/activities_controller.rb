@@ -11,6 +11,7 @@ class ActivitiesController < ApplicationController
     present Activity::Update
     @activity_comments = @model.activity_comments.includes(:game).order(id: :asc).all
     @activity_comment_form = ActivityComment::Create.present(params)
+    set_item_id
   end
 
   # GET /activities/new
@@ -48,5 +49,11 @@ class ActivitiesController < ApplicationController
     end
 
     redirect_back(fallback_location: activity_path(params[:id]))
+  end
+
+  private
+
+  def set_item_id
+    record_event_item_ids(*@activity_comments.map { |c| "activity_comment_#{c.id}" })
   end
 end
