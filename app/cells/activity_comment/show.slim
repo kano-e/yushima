@@ -2,13 +2,11 @@
   .row.right-align
     = link_to 'Edit', edit_activity_activity_comment_path, class: 'btn-flat'
 
-.row
-  .col.s12.m12.l6.offset-l3
-    .card
-      = show_image
-      .card-stacked
-        .card-content
-          p.flow-text = detail
-        .card-action
-          = activity_link
-          = game_link
+.card
+  = show_image
+  .card-stacked
+    .card-content
+      p.flow-text = detail
+    .card-action
+      = activity_link
+      = game_link

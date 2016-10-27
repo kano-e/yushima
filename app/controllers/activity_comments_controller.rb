@@ -11,6 +11,11 @@ class ActivityCommentsController < ApplicationController
   def show
     @activity = Activity.find(params[:activity_id])
     present ActivityComment::Update
+    @activity_comments = @activity.activity_comments.where.not(id: @model.id).order(id: :asc).to_a
+    comment_counts = @activity_comments.count
+    if comment_counts < 30 && @model.game.present?
+      @activity_comments += @model.game.activity_comments.where.not(id: @activity_comments.map(&:id) + [@model.id]).order(id: :desc).limit(30 - comment_counts).to_a
+    end
     set_item_id
   end
 
