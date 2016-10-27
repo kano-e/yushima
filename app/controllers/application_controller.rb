@@ -12,11 +12,14 @@ class ApplicationController < ActionController::Base
 
   def set_purchase_event
     ids = session[:add_to_cart_ids]
-    return if ids.blank?
 
-    @event_type = 'Purchase'
-    @content_ids = ids
-    session.delete(:add_to_cart_ids)
+    if ids.blank?
+      @event_type = 'Purchase'
+      @content_ids = ids
+      session.delete(:add_to_cart_ids)
+    else
+      set_content_ids
+    end
   end
 
   def set_content_ids(*ids)
