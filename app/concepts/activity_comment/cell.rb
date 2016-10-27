@@ -11,6 +11,10 @@ class ActivityComment::Cell < Cell::ViewModel
     render :index
   end
 
+  def index_for_show_comment
+    render :index_for_show_comment
+  end
+
   def meta
     render :meta
   end

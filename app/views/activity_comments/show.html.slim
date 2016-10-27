@@ -5,7 +5,12 @@ nav
       = link_to @model.activity.day, activity_path(@model.activity), class: 'breadcrumb'
       span.breadcrumb Show Comment
 .section.no-pad-bot
-  .container = concept('activity_comment/cell', @model).()
+  .container
+    .row
+      .col.s12.m12.l7
+        = concept('activity_comment/cell', @model).()
+      .col.s12.m12.l4.offset-l1
+        .row = concept('activity_comment/cell', collection: @activity_comments).(:index_for_show_comment)
 
 - content_for :head do
   = concept('activity_comment/cell', @model).(:meta)

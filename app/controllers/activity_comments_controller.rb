@@ -11,6 +11,7 @@ class ActivityCommentsController < ApplicationController
   def show
     @activity = Activity.find(params[:activity_id])
     present ActivityComment::Update
+    @activity_comments = @activity.activity_comments.where.not(id: @model.id).order(id: :asc).includes(:game)
     set_item_id
   end
 
