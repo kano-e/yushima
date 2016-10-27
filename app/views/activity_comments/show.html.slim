@@ -7,12 +7,6 @@ nav
 .section.no-pad-bot
   .container = concept('activity_comment/cell', @model).()
 
-javascript:
-  var feedmatic = {
-    event: 'ViewContent',
-    content_ids: ["activity_comment_#{@model.id}"]
-  };
-
 - content_for :head do
   = concept('activity_comment/cell', @model).(:meta)
 

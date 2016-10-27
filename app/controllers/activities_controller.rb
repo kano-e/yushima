@@ -4,6 +4,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   def index
     @activities = Activity.all.order(day: :desc).includes(activity_comments: :game)
+    set_content_ids
   end
 
   # GET /activities/1
@@ -54,6 +55,7 @@ class ActivitiesController < ApplicationController
   private
 
   def set_item_id
-    record_event_item_ids(*@activity_comments.map { |c| "activity_comment_#{c.id}" })
+    set_content_ids(*@activity_comments.map { |c| "activity_comment_#{c.id}" })
+    record_event_item_ids
   end
 end

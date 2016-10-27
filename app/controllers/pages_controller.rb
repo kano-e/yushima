@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def show
-    @event_item_ids = session[:event_item_ids] || []
+    record_event_item_ids
+    set_purchase_event
     render params[:id]
   end
 end
