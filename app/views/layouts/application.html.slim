@@ -42,6 +42,13 @@ body
   main
     = yield
 
+    - if @event_type.present? && @content_ids.present?
+      javascript:
+        var feedmatic = {
+          event: '#{@event_type}',
+          content_ids: [#{raw @content_ids.map { |id| %W|"#{id}"| }.join(',')}]
+        };
+
     noscript
       iframe[src='https://www.googletagmanager.com/ns.html?id=GTM-5SQJR4' height='0' width='0' style='display:none;visibility:hidden']
 

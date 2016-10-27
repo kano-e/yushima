@@ -14,11 +14,5 @@ nav
       - if signed_in?
         == render partial: 'activity_comments/form', locals: { form: @activity_comment_form, model: @activity_comment_form.model }
 
-javascript:
-  var feedmatic = {
-    event: 'ViewContent',
-    content_ids: [#{raw @activity_comments.first(10).map { |ac| %W|"activity_comment_#{ac.id}"| }.join(',') }]
-  };
-
 - content_for :head do
   = concept('activity/cell', @model).(:meta)

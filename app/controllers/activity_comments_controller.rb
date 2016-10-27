@@ -58,6 +58,7 @@ class ActivityCommentsController < ApplicationController
   end
 
   def set_item_id
-    record_event_item_ids("activity_comment_#{@model.id}")
+    set_content_ids("activity_comment_#{@model.id}")
+    record_event_item_ids
   end
 end
