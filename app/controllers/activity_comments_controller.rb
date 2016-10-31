@@ -58,10 +58,6 @@ class ActivityCommentsController < ApplicationController
 
   private
 
-  def params!(params)
-    params.merge(current_user: current_user)
-  end
-
   def set_item_id
     set_content_ids("activity_comment_#{@model.id}")
     record_event_item_ids

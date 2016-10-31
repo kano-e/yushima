@@ -1,7 +1,9 @@
 class Activity::Create < Trailblazer::Operation
   include Model
+  include Trailblazer::Operation::Policy
 
   model Activity, :create
+  policy Activity::Policy, :create?
 
   contract do
     property :day, validates: { presence: true }

@@ -4,6 +4,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   def index
     @activities = Activity.all.order(day: :desc).includes(activity_comments: :game)
+    @activity_policy = Activity::Policy.new(current_user, nil)
     set_content_ids
   end
 
