@@ -5,7 +5,7 @@ nav
 
 .section.no-pad-bot
   .container
-    - if signed_in?
+    - if @activity_policy.create?
       .row.right-align
         = link_to 'New Activity', new_activity_path, class: 'btn-flat'
 

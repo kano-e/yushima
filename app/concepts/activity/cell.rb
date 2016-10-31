@@ -13,6 +13,10 @@ class Activity::Cell < Cell::ViewModel
     render :meta
   end
 
+  def policy
+    @policy ||= Activity::Policy.new(current_user, model)
+  end
+
   def meta_title
     "#{day}の活動 - フィードフォース ボドゲ部"
   end

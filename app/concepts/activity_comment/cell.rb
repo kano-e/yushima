@@ -19,6 +19,10 @@ class ActivityComment::Cell < Cell::ViewModel
     render :meta
   end
 
+  def policy
+    @policy ||= ActivityComment::Policy.new(current_user, model)
+  end
+
   def meta_image
     return photo.url(:ll) if photo.present?
     return game.photo.url(:ll) if game && game.photo.present?

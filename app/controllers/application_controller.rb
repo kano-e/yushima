@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def params!(params)
+    params.merge(current_user: current_user)
+  end
+
   # @deprecated
   def record_event_item_ids(*ids)
     session.delete(:event_item_ids)

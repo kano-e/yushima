@@ -11,6 +11,7 @@
 # **`created_at`**  | `datetime`         | `not null`
 # **`updated_at`**  | `datetime`         | `not null`
 # **`image_url`**   | `text`             |
+# **`role`**        | `integer`          | `default("user"), not null`
 #
 
 FactoryGirl.define do

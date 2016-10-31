@@ -11,7 +11,7 @@ nav
     .row
       = concept('activity_comment/cell', collection: @activity_comments).(:index)
     .row#activity-comment-form
-      - if signed_in?
+      - if @activity_comment_policy.create?
         == render partial: 'activity_comments/form', locals: { form: @activity_comment_form, model: @activity_comment_form.model }
 
 - content_for :head do
