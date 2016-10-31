@@ -13,6 +13,7 @@ class ActivitiesController < ApplicationController
     present Activity::Update
     @activity_comments = @model.activity_comments.includes(:game).order(id: :asc).all
     @activity_comment_form = ActivityComment::Create.present(params)
+    @activity_comment_policy = ActivityComment::Policy.new(current_user, @activity_comment_form.model)
     set_item_id
   end
 
