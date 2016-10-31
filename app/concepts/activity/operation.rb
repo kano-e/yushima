@@ -3,7 +3,7 @@ class Activity::Create < Trailblazer::Operation
   include Trailblazer::Operation::Policy
 
   model Activity, :create
-  policy Activity::Policy, :create?
+  policy Activity::Policy, :show?
 
   contract do
     property :day, validates: { presence: true }
@@ -11,6 +11,7 @@ class Activity::Create < Trailblazer::Operation
   end
 
   def process(params)
+    return invalid! unless policy.create?
     validate(params[:activity]) do |form|
       form.save
     end
