@@ -1,7 +1,9 @@
 class Game::Create < Trailblazer::Operation
   include Model
+  include Trailblazer::Operation::Policy
 
   model Game, :create
+  policy Game::Policy, :show?
 
   contract do
     property :title_ja, validates: { presence: true }
@@ -40,6 +42,8 @@ class Game::Create < Trailblazer::Operation
   end
 
   def process(params)
+    return invalid! unless policy.create?
+
     validate(params[:game]) do |form|
       model.public_str ||= SecureRandom.urlsafe_base64
       form.save
