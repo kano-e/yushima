@@ -5,9 +5,6 @@ nav
       span.breadcrumb Show Game
 .section.no-pad-bot
   .container
-    - if signed_in?
-      .row.right-align
-        = link_to 'Edit', edit_game_path, class: 'btn-flat'
     = concept('game/cell', @model).()
 
 .section

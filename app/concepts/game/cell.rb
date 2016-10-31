@@ -21,6 +21,10 @@ class Game::Cell < Cell::ViewModel
     render :meta
   end
 
+  def policy
+    @policy ||= Game::Policy.new(current_user, model)
+  end
+
   def number_of_players_text
     return if !min_players && !max_players
 
