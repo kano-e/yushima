@@ -22,10 +22,22 @@ body
       = link_to 'Feedforce Boardgame Club', root_path, id: 'logo-container'
       ul.right.hide-on-med-and-down
         li = link_to 'Activities', activities_path
+        - if Activity::Policy.new(current_user, nil).create?
+          li = link_to new_activity_path do
+            = fa_icon('plus-square-o')
         li = link_to 'Games', games_path
+        - if Game::Policy.new(current_user, nil).create?
+          li = link_to new_game_path do
+            = fa_icon('plus-square-o')
       ul#nav-mobile.side-nav
         li = link_to 'Activities', activities_path
+        - if Activity::Policy.new(current_user, nil).create?
+          li = link_to new_activity_path do
+            | New Activity
         li = link_to 'Games', games_path
+        - if Game::Policy.new(current_user, nil).create?
+          li = link_to new_game_path do
+            | New Game
         li
           - if signed_in?
             = link_to 'Logout', logout_path
