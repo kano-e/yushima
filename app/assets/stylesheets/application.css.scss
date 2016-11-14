@@ -48,3 +48,9 @@ nav {
 select.search-select {
   display: inline;
 }
+
+@media only screen and (min-width : 600px) {
+  .comment-for-activity .card-content .content p {
+    min-height: 8em;
+  }
+}
