@@ -103,7 +103,7 @@ class ActivityComment::Cell < Cell::ViewModel
 
     content_tag(:div, class: 'card-content') do
       content_tag(:div, class: 'content') do
-        truncate_detail
+        content_tag(:p, detail)
       end
     end
   end
@@ -112,11 +112,6 @@ class ActivityComment::Cell < Cell::ViewModel
     content_tag(:div, class: 'card-action right-align') do
       show_link
     end
-  end
-
-  def truncate_detail
-    return if detail.blank?
-    content_tag(:p, detail, class: 'truncate')
   end
 
   def game_link
