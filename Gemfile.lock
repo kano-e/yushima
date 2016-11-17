@@ -104,6 +104,7 @@ GEM
     formatador (0.2.5)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    graphql (1.2.3)
     guard (2.14.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -324,6 +325,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   factory_girl_rails
   font-awesome-rails
+  graphql
   guard-rspec (~> 4.6)
   jquery-rails
   kramdown
