@@ -1,3 +1,5 @@
+require 'photo_type'
+
 GameType = GraphQL::ObjectType.define do
   name 'Game'
   description 'A boardgame'
@@ -9,6 +11,7 @@ GameType = GraphQL::ObjectType.define do
   field :max_players, types.Int
   field :min_minutes, types.Int
   field :max_minutes, types.Int
+  field :photo, PhotoType
 end
 
 CreateGameMutation = GraphQL::Relay::Mutation.define do
