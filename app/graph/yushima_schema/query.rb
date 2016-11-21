@@ -5,8 +5,14 @@ module YushimaSchema::Query
 
     field :games do
       type Game::Graph::Type.to_list_type
-      description 'Game list'
-      resolve ->(obj, args, ctx) { Game.order(title_en: :asc, title_ja: :asc).to_a }
+      description 'Game list order'
+      argument :limit, types.Int
+      argument :offset, types.Int
+      resolve ->(obj, args, ctx) do
+        rel = Game.order(title_en: :asc, title_ja: :asc).
+          limit(args['limit']).offset(args['offset']).
+          to_a
+      end
     end
 
     field :game do
