@@ -12,6 +12,7 @@ class QueriesController < ApplicationController
       variables: query_variables,
       context: {
         current_user: current_user,
+        file: request.params[:file],
       },
     )
     render json: result

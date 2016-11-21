@@ -38,6 +38,7 @@ module Game::Graph
 
     resolve ->(object, inputs, ctx) {
       game_params = inputs.to_h
+      game_params[:photo] = ctx[:file]
       op = Game::Create.(game: game_params, current_user: ctx[:current_user])
 
       { game: op.model }
