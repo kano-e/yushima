@@ -11,6 +11,17 @@ module Game::Graph
     field :min_minutes, types.Int
     field :max_minutes, types.Int
     field :photo, Photo::Graph::Type
+
+    field :activity_comments do
+      type ActivityComment::Graph::Type.to_list_type
+      argument :limit, types.Int
+      argument :offset, types.Int
+
+      resolve ->(object, args, ctx) do
+        object.activity_comments.order(id: :desc).
+          limit(args['limit'].presence || 30).offset(args['offset'].presence || 0)
+      end
+    end
   end
 
   CreateMutation = GraphQL::Relay::Mutation.define do
