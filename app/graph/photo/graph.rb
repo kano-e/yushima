@@ -7,13 +7,16 @@ module Photo::Graph
       resolve ->(object, args, ctx) do
         size = args[:size] || :ss
 
-        if object.present?
-          object.url(size)
-        elsif comment = object.model.activity_comments.where.not(photo: nil).first
-          comment.photo.url(size)
-        else
-          nil
+        return object.url(size) if object.present?
+
+        case object.model
+        when ActivityComment
+          photo = object.model.game&.photo
+        when Game
+          photo = object.model.activity_comments.where.not(photo: nil).first&.photo
         end
+
+        photo.present? ? photo.url(size) : nil
       end
     end
   end
