@@ -37,7 +37,8 @@ module Game::Graph
     return_field :game, Game::Graph::Type
 
     resolve ->(object, inputs, ctx) {
-      op = Game::Create.(game: inputs.to_h, current_user: User.first)
+      game_params = inputs.to_h
+      op = Game::Create.(game: game_params, current_user: ctx[:current_user])
 
       { game: op.model }
     }
