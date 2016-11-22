@@ -32,4 +32,6 @@ class Game < ApplicationRecord
   attr_accessor :photo_cache
 
   mount_uploader :photo, PhotoUploader
+
+  scope :default_order, -> { order(title_en: :asc, title_ja: :asc) }
 end
