@@ -36,4 +36,6 @@ class ActivityComment < ApplicationRecord
   attr_accessor :photo_cache
 
   mount_uploader :photo, PhotoUploader
+
+  scope :default_order, -> { order(id: :desc) }
 end
