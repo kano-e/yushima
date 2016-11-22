@@ -14,12 +14,12 @@ module Game::Graph
 
     field :activity_comments do
       type ActivityComment::Graph::Type.to_list_type
-      argument :limit, types.Int
-      argument :offset, types.Int
+      argument :limit, types.Int, default_value: 30
+      argument :offset, types.Int, default_value: 0
 
       resolve ->(object, args, ctx) do
         object.activity_comments.order(id: :desc).
-          limit(args['limit'].presence || 30).offset(args['offset'].presence || 0)
+          limit([args['limit'], 100].min).offset(args['offset'])
       end
     end
   end
