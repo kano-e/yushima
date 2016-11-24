@@ -29,6 +29,10 @@ body
         - if Game::Policy.new(current_user, nil).create?
           li = link_to new_game_path do
             = fa_icon('plus-square-o')
+        - if signed_in?
+          li
+            = image_tag(current_user.image_url, class: 'circle', style: 'height:1.2em; margin-right:0.2em;')
+            = current_user.nickname
       ul#nav-mobile.side-nav
         li = link_to 'Activities', activities_path
         - if Activity::Policy.new(current_user, nil).create?
@@ -38,18 +42,29 @@ body
         - if Game::Policy.new(current_user, nil).create?
           li = link_to new_game_path do
             | New Game
+        - if signed_in?
+          li
+            = link_to '#' do
+              = image_tag(current_user.image_url, class: 'circle', style: 'height:1.2em; margin-right:0.2em;')
+              = current_user.nickname
         li
           - if signed_in?
             = link_to 'Logout', logout_path
           - else
-            = link_to 'Login', '/auth/twitter'
+            = link_to('Login', login_url(current_page: request.original_fullpath))
       = link_to fa_icon('bars'), '#', 'data-activates': 'nav-mobile', class: 'button-collapse right'
 
   - if notice
-    nav.blue-grey.lighten-5
+    nav.green.lighten-5
       .nav-wrapper
         .container
           span.grey-text = notice
+
+  - if flash[:warning]
+    nav.amber.lighten-5
+      .nav-wrapper
+        .container
+          span.grey-text = flash[:warning]
 
   main
     = yield
@@ -86,5 +101,5 @@ body
             - if signed_in?
               = link_to('Logout', logout_path, class: 'white-text')
             - else
-              = link_to('Login', '/auth/twitter', class: 'white-text')
+              = link_to('Login', login_url(current_page: request.original_fullpath), class: 'white-text')
 

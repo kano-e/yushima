@@ -1,7 +1,9 @@
 # == Route Map
 #
 #                         Prefix Verb   URI Pattern                                                   Controller#Action
+#                       callback GET    /auth/callback(.:format)                                      sessions#create
 #                                GET    /auth/:providr/callback(.:format)                             sessions#create
+#                          login GET    /login(.:format)                                              sessions#new
 #                         logout GET    /logout(.:format)                                             sessions#destroy
 #     activity_activity_comments GET    /activities/:activity_id/activity_comments(.:format)          activity_comments#index
 #                                POST   /activities/:activity_id/activity_comments(.:format)          activity_comments#create
@@ -27,13 +29,16 @@
 #                                PATCH  /games/:id(.:format)                                          games#update
 #                                PUT    /games/:id(.:format)                                          games#update
 #                                DELETE /games/:id(.:format)                                          games#destroy
+#                           page GET    /pages/:id(.:format)                                          pages#show
 #                           root GET    /                                                             home#index
 #
 
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  get '/auth/callback', to: 'sessions#create', as: 'callback'
   get '/auth/:providr/callback', to: 'sessions#create'
+  get '/login', to: 'sessions#new', as: 'login'
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
   resources :activities do

@@ -4,14 +4,15 @@
 #
 # ### Columns
 #
-# Name              | Type               | Attributes
-# ----------------- | ------------------ | ---------------------------
-# **`id`**          | `integer`          | `not null, primary key`
-# **`nickname`**    | `string`           |
-# **`created_at`**  | `datetime`         | `not null`
-# **`updated_at`**  | `datetime`         | `not null`
-# **`image_url`**   | `text`             |
-# **`role`**        | `integer`          | `default("user"), not null`
+# Name                  | Type               | Attributes
+# --------------------- | ------------------ | ---------------------------
+# **`id`**              | `integer`          | `not null, primary key`
+# **`nickname`**        | `string`           |
+# **`created_at`**      | `datetime`         | `not null`
+# **`updated_at`**      | `datetime`         | `not null`
+# **`image_url`**       | `text`             |
+# **`role`**            | `integer`          | `default("user"), not null`
+# **`socialplus_uid`**  | `string`           |
 #
 
 class User < ApplicationRecord
