@@ -49,7 +49,7 @@ module ApplicationHelper
 
   def socialplus_auth_url
     uri = URI.parse('https://api.socialplus.jp/ff_boardgame/ff_boardgame/twitter/authenticate')
-    uri.query = { callback: callback_url }.to_query
+    uri.query = { callback: callback_url, token_param: @auth_token_key }.to_query
     uri.to_s
   end
 end
