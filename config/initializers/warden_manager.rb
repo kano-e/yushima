@@ -1,6 +1,8 @@
 require Rails.root.join('lib', 'warden', 'omniauth_strategy')
+require Rails.root.join('lib', 'warden', 'socialplus_strategy')
 
 Warden::Strategies.add(:omniauth, OmniauthStrategy)
+Warden::Strategies.add(:socialplus, SocialplusStrategy)
 
 Warden::Manager.serialize_into_session do |user|
   user.id
@@ -11,6 +13,6 @@ Warden::Manager.serialize_from_session do |id|
 end
 
 Rails.application.config.middleware.insert_after ActionDispatch::Flash, Warden::Manager do |manager|
-  manager.default_strategies :omniauth
+  manager.default_strategies :socialplus
   manager.failure_app = UnauthorizedController
 end
