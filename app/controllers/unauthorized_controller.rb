@@ -12,6 +12,7 @@ class UnauthorizedController < ActionController::Metal
   end
 
   def respond
-    redirect_to root_url
+    flash[:warning] = request.env['warden'].message[:message]
+    redirect_to(login_url)
   end
 end

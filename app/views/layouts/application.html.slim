@@ -46,10 +46,16 @@ body
       = link_to fa_icon('bars'), '#', 'data-activates': 'nav-mobile', class: 'button-collapse right'
 
   - if notice
-    nav.blue-grey.lighten-5
+    nav.green.lighten-5
       .nav-wrapper
         .container
           span.grey-text = notice
+
+  - if flash[:warning]
+    nav.amber.lighten-5
+      .nav-wrapper
+        .container
+          span.grey-text = flash[:warning]
 
   main
     = yield
