@@ -11,15 +11,15 @@ class SocialplusStrategy < ::Warden::Strategies::Base
       user_data = response['user']
       user = User.find_by_socialplus_uid(user_data['identifier'])
 
-      if user
-        profile = response['profile']
-        user.nickname = profile['user_name']
-        user.image_url = profile['image_url']
-        user.save
-        success! user
-      else
-        fail! message: 'Not found your account.'
+      unless user
+        user = User.create!(socialplus_uid: user_data['identifier'], role: :user)
       end
+
+      profile = response['profile']
+      user.nickname = profile['user_name']
+      user.image_url = profile['image_url']
+      user.save
+      success! user
     end
   end
 
