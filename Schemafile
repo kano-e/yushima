@@ -53,7 +53,8 @@ create_table "users", force: :cascade do |t|
   t.datetime "updated_at",                 null: false
   t.text     "image_url"
   t.integer  "role",           default: 0, null: false
-  t.string   "socialplus_uid"
+  t.string   "socialplus_uid",             null: false
+  t.index ["socialplus_uid"], name: "index_users_on_socialplus_uid", using: :btree
 end
 
 add_foreign_key "accounts", "users", name: "accounts_belongs_to_users"
