@@ -42,7 +42,7 @@ body
           - if signed_in?
             = link_to 'Logout', logout_path
           - else
-            = link_to 'Login', '/auth/twitter'
+            = link_to 'Login', login_url
       = link_to fa_icon('bars'), '#', 'data-activates': 'nav-mobile', class: 'button-collapse right'
 
   - if notice
@@ -92,5 +92,5 @@ body
             - if signed_in?
               = link_to('Logout', logout_path, class: 'white-text')
             - else
-              = link_to('Login', '/auth/twitter', class: 'white-text')
+              = link_to('Login', login_url, class: 'white-text')
 
