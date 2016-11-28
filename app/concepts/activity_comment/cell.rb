@@ -72,6 +72,15 @@ class ActivityComment::Cell < Cell::ViewModel
     default_tw_image_tag
   end
 
+  def show_username
+    "@#{model.user.nickname}"
+  end
+
+  def show_card_title
+    return activity_link if params[:controller] == 'games'
+    game_link
+  end
+
   def show_image
     content_tag(:div, class: 'card-image') do
       image_url = if photo.present?
@@ -86,26 +95,14 @@ class ActivityComment::Cell < Cell::ViewModel
   end
 
   def card_image
-    content_tag(:div, class: 'card-image') do
-      image_url = if photo.present?
-                    photo.url(:sm)
-                  elsif game && game.photo.present?
-                    game.photo.url(:sm)
-                  else
-                    'no-image-for-comment.jpg'
-                  end
-      show_link(image_tag(image_url))
-    end
-  end
-
-  def card_content
-    return if detail.blank?
-
-    content_tag(:div, class: 'card-content') do
-      content_tag(:div, class: 'content') do
-        content_tag(:p, detail)
-      end
-    end
+    image_url = if photo.present?
+                  photo.url(:sm)
+                elsif game && game.photo.present?
+                  game.photo.url(:sm)
+                else
+                  'no-image-for-comment.jpg'
+                end
+    show_link(image_tag(image_url))
   end
 
   def card_action
@@ -120,7 +117,7 @@ class ActivityComment::Cell < Cell::ViewModel
   end
 
   def activity_link
-    return ' ' if activity.blank?
+    return if activity.blank?
 
     link_to activity.day, activity
   end
