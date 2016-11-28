@@ -76,6 +76,11 @@ class ActivityComment::Cell < Cell::ViewModel
     "@#{model.user.nickname}"
   end
 
+  def show_card_title
+    return activity_link if params[:controller] == 'games'
+    game_link
+  end
+
   def show_image
     content_tag(:div, class: 'card-image') do
       image_url = if photo.present?
@@ -112,7 +117,7 @@ class ActivityComment::Cell < Cell::ViewModel
   end
 
   def activity_link
-    return ' ' if activity.blank?
+    return if activity.blank?
 
     link_to activity.day, activity
   end

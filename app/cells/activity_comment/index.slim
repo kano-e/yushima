@@ -5,7 +5,10 @@
     .card-stacked
       .card-content
         .content
+          = show_card_title
           p
             = detail
+            | &nbsp;
             span.grey-text = show_username
-      = card_action
+      .card-action
+        = show_link
