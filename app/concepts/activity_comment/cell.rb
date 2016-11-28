@@ -72,6 +72,10 @@ class ActivityComment::Cell < Cell::ViewModel
     default_tw_image_tag
   end
 
+  def show_username
+    "@#{model.user.nickname}"
+  end
+
   def show_image
     content_tag(:div, class: 'card-image') do
       image_url = if photo.present?
