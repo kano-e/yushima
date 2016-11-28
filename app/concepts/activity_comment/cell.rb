@@ -102,16 +102,6 @@ class ActivityComment::Cell < Cell::ViewModel
     end
   end
 
-  def card_content
-    return if detail.blank?
-
-    content_tag(:div, class: 'card-content') do
-      content_tag(:div, class: 'content') do
-        content_tag(:p, detail)
-      end
-    end
-  end
-
   def card_action
     content_tag(:div, class: 'card-action right-align') do
       show_link
