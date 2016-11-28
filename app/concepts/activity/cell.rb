@@ -32,7 +32,7 @@ class Activity::Cell < Cell::ViewModel
   end
 
   def meta_image
-    if comment = activity_comments.select { |comment| comment.photo.present? }.first
+    if comment = activity_comments.sort_by(&:id).select { |comment| comment.photo.present? }.first
       return comment.photo.url(:ll)
     end
   end
