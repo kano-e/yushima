@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe 'operation for game' do
   describe 'policyについて' do
+    # テストの書き方に悩んで policy のテスト書いたけど、これは Game::Policy でテストすれば良いかな
     context 'adminユーザの場合' do
       let(:user) { User.create(role: :admin, socialplus_uid: '12345') }
 
