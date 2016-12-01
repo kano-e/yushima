@@ -42,7 +42,7 @@ class Game::Show < Trailblazer::Operation
   end
 
   def process(params)
-    invalid!
+    raise Trailblazer::NoAuthorizedError
   end
 end
 
