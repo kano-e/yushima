@@ -32,4 +32,8 @@ class Game < ApplicationRecord
   attr_accessor :photo_cache
 
   mount_uploader :photo, PhotoUploader
+
+  def comments
+    @comments ||= activity_comments.includes(:activity, :user).order(id: :asc).all
+  end
 end
