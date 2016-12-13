@@ -101,9 +101,7 @@ class Activity::Cell < Cell::ViewModel
   end
 
   def show_games
-    activity_comments.map(&:game).compact.uniq.map { |game| game.title_ja }.join(
-      content_tag(:span, '｜')
-    )
+    games.map(&:title_ja).join(content_tag(:span, '｜'))
   end
 
   def link_to_games
