@@ -9,7 +9,7 @@ nav
 .section
   .container
     .row
-      = concept('activity_comment/cell', collection: @activity_comments).(:index)
+      = concept('activity_comment/cell', collection: @model.comments).(:index)
     .row#activity-comment-form
       - if @activity_comment_policy.create?
         == render partial: 'activity_comments/form', locals: { form: @activity_comment_form, model: @activity_comment_form.model }

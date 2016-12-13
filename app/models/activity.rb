@@ -19,4 +19,8 @@
 
 class Activity < ApplicationRecord
   has_many :activity_comments
+
+  def comments
+    @comments ||= activity_comments.includes(:game, :user).order(id: :asc).all
+  end
 end

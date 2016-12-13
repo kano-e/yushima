@@ -3,7 +3,7 @@ class Activity::Cell < Cell::ViewModel
   include ApplicationHelper
 
   property :day
-  property :activity_comments
+  property :comments
 
   def index
     render :index
@@ -23,8 +23,8 @@ class Activity::Cell < Cell::ViewModel
 
   def meta_description
     text = "フィードフォース ボドゲ部 #{day}の活動です。"
-    if activity_comments.map { |comment| comment.game }.present?
-      text += activity_comments.map { |comment| comment.game&.title_ja }.compact.uniq.join(', ')
+    if comments.map(&:game).present?
+      text += comments.map { |comment| comment.game&.title_ja }.compact.uniq.join(', ')
       text += ' で遊びました！'
     end
 
@@ -32,7 +32,7 @@ class Activity::Cell < Cell::ViewModel
   end
 
   def meta_image
-    if comment = activity_comments.sort_by(&:id).select { |comment| comment.photo.present? }.first
+    if comment = comments.sort_by(&:id).select { |comment| comment.photo.present? }.first
       return comment.photo.url(:ll)
     end
   end
@@ -80,14 +80,14 @@ class Activity::Cell < Cell::ViewModel
   end
 
   def images
-    [] if activity_comments.size.zero?
-    activity_comments.select { |com| com.photo.present? }.first(3).map { |com| com.photo }
+    [] if comments.size.zero?
+    comments.select { |com| com.photo.present? }.first(3).map { |com| com.photo }
   end
 
   def show_images
-    return if activity_comments.size.zero?
+    return if comments.size.zero?
 
-    activity_comments.select { |com| com.photo.present? }.first(3).map do |comment|
+    comments.select { |com| com.photo.present? }.first(3).map do |comment|
       content_tag(:div, class: 'column') do
         content_tag(:figure, class: 'image is-square') do
           image_tag comment.photo.url(:thumbnail)
@@ -97,7 +97,7 @@ class Activity::Cell < Cell::ViewModel
   end
 
   def games
-    activity_comments.map(&:game).compact.uniq
+    comments.map(&:game).compact.uniq
   end
 
   def show_games
@@ -105,7 +105,7 @@ class Activity::Cell < Cell::ViewModel
   end
 
   def link_to_games
-    activity_comments.map(&:game).compact.uniq.map do |game|
+    comments.map(&:game).compact.uniq.map do |game|
       link_to game.title_ja, game
     end.join(content_tag(:span, '｜'))
   end
