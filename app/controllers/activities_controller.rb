@@ -11,7 +11,6 @@ class ActivitiesController < ApplicationController
   # GET /activities/1
   def show
     present Activity::Update
-    @activity_comments = @model.activity_comments.includes(:game).order(id: :asc).all
     @activity_comment_form = ActivityComment::Create.present(params)
     @activity_comment_policy = ActivityComment::Policy.new(current_user, @activity_comment_form.model)
     set_item_id
@@ -57,7 +56,7 @@ class ActivitiesController < ApplicationController
   private
 
   def set_item_id
-    set_content_ids(*@activity_comments.map { |c| "activity_comment_#{c.id}" })
+    set_content_ids(*@model.comments.map { |c| "activity_comment_#{c.id}" })
     record_event_item_ids
   end
 end

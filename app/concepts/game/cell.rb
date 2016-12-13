@@ -11,7 +11,7 @@ class Game::Cell < Cell::ViewModel
   property :min_minutes
   property :max_minutes
   property :photo
-  property :activity_comments
+  property :comments
 
   def index
     render :index
@@ -64,7 +64,7 @@ class Game::Cell < Cell::ViewModel
   def meta_image
     return photo.url(:ll) if photo.present?
 
-    if comment = activity_comments.select { |comment| comment.photo.present? }.first
+    if comment = comments.select { |comment| comment.photo.present? }.first
       return comment.photo.url(:ll)
     end
 

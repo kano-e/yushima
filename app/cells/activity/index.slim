@@ -1,5 +1,5 @@
 .col.s12.m12.l6
-  .card.white.small
+  .card.white.medium
     .card-content
       span.card-title = show_link
       .valign-wrapper
@@ -10,3 +10,5 @@
       .row
         - games.each do |game|
           .col.teal-text = game.title_ja
+    .card-action
+      = show_link('Show')

@@ -73,7 +73,7 @@ class ActivityComment::Cell < Cell::ViewModel
   end
 
   def show_username
-    "@#{model.user.nickname}"
+    "by #{model.user.nickname}"
   end
 
   def show_card_title
