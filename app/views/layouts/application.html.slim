@@ -1,105 +1,122 @@
 doctype html
 html
-head
-  = yield :head
+  head
+    = yield :head
 
-  title Feedforce Boardgame Club
-  = csrf_meta_tags
-  = stylesheet_link_tag :application, medis: 'all', 'data-turbolinks-track': 'reload'
-  = javascript_include_tag :application, 'data-turbolinks-track': 'reload'
-  javascript:
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5SQJR4');
+    title Feedforce Boardgame Club
+    = csrf_meta_tags
+    = stylesheet_link_tag :application, medis: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag :application, 'data-turbolinks-track': 'reload'
+    javascript:
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5SQJR4');
 
-  meta[name='viewport' content='width=device-width, initial-scale=1.0']
+    meta[name='viewport' content='width=device-width, initial-scale=1.0']
 
-body
-  nav.light-green[role='navigation']
-    .nav-wrapper.container
-      = link_to 'Feedforce Boardgame Club', root_path, id: 'logo-container'
-      ul.right.hide-on-med-and-down
-        li = link_to 'Activities', activities_path
-        - if Activity::Policy.new(current_user, nil).create?
-          li = link_to new_activity_path do
-            = fa_icon('plus-square-o')
-        li = link_to 'Games', games_path
-        - if Game::Policy.new(current_user, nil).create?
-          li = link_to new_game_path do
-            = fa_icon('plus-square-o')
-        - if signed_in?
-          li
-            = image_tag(current_user.image_url, class: 'circle', style: 'height:1.2em; margin-right:0.2em;')
-            = current_user.nickname
-      ul#nav-mobile.side-nav
-        li = link_to 'Activities', activities_path
-        - if Activity::Policy.new(current_user, nil).create?
-          li = link_to new_activity_path do
-            | New Activity
-        li = link_to 'Games', games_path
-        - if Game::Policy.new(current_user, nil).create?
-          li = link_to new_game_path do
-            | New Game
-        - if signed_in?
-          li
-            = link_to '#' do
+  body
+    nav.light-green[role='navigation']
+      .nav-wrapper.container
+        = link_to 'Feedforce Boardgame Club', root_path, id: 'logo-container'
+        ul.right.hide-on-med-and-down
+          li = link_to 'Activities', activities_path
+          - if Activity::Policy.new(current_user, nil).create?
+            li = link_to new_activity_path do
+              = fa_icon('plus-square-o')
+          li = link_to 'Games', games_path
+          - if Game::Policy.new(current_user, nil).create?
+            li = link_to new_game_path do
+              = fa_icon('plus-square-o')
+          - if signed_in?
+            li
               = image_tag(current_user.image_url, class: 'circle', style: 'height:1.2em; margin-right:0.2em;')
               = current_user.nickname
-        li
+        ul#nav-mobile.side-nav
+          li = link_to 'Activities', activities_path
+          - if Activity::Policy.new(current_user, nil).create?
+            li = link_to new_activity_path do
+              | New Activity
+          li = link_to 'Games', games_path
+          - if Game::Policy.new(current_user, nil).create?
+            li = link_to new_game_path do
+              | New Game
           - if signed_in?
-            = link_to 'Logout', logout_path
-          - else
-            = link_to('Login', login_url(current_page: request.original_fullpath))
-      = link_to fa_icon('bars'), '#', 'data-activates': 'nav-mobile', class: 'button-collapse right'
+            li
+              = link_to '#' do
+                = image_tag(current_user.image_url, class: 'circle', style: 'height:1.2em; margin-right:0.2em;')
+                = current_user.nickname
+          li
+            - if signed_in?
+              = link_to 'Logout', logout_path
+            - else
+              = link_to('Login', login_url(current_page: request.original_fullpath))
+        = link_to fa_icon('bars'), '#', 'data-activates': 'nav-mobile', class: 'button-collapse right'
 
-  - if notice
-    nav.green.lighten-5
-      .nav-wrapper
-        .container
-          span.grey-text = notice
+    - if notice
+      nav.green.lighten-5
+        .nav-wrapper
+          .container
+            span.grey-text = notice
 
-  - if flash[:warning]
-    nav.amber.lighten-5
-      .nav-wrapper
-        .container
-          span.grey-text = flash[:warning]
+    - if flash[:warning]
+      nav.amber.lighten-5
+        .nav-wrapper
+          .container
+            span.grey-text = flash[:warning]
 
-  main
-    = yield
+    main
+      = yield
 
-    - if @event_type.present? && @content_ids.present?
-      javascript:
-        var feedmatic = {
-          event: '#{@event_type}',
-          content_ids: [#{raw @content_ids.map { |id| %W|"#{id}"| }.join(',')}]
+      - if @event_type.present? && @content_ids.present?
+        javascript:
+          var feedmatic = {
+            event: '#{@event_type}',
+            content_ids: [#{raw @content_ids.map { |id| %W|"#{id}"| }.join(',')}]
+          };
+
+      noscript
+        iframe[src='https://www.googletagmanager.com/ns.html?id=GTM-5SQJR4' height='0' width='0' style='display:none;visibility:hidden']
+
+    javascript:
+      !(function (w, d, t, u, n, s, c) {
+        w[n] = w[n] || function () {
+          (w[n].queue = w[n].queue || []).push(arguments);
         };
+        s = d.createElement(t);
+        c = d.getElementsByTagName(t)[0];
+        s.async = 1;
+        s.src = u;
+        c.parentNode.insertBefore(s, c);
+      })(window, document, 'script', 'https://s3-ap-northeast-1.amazonaws.com/tag.feedmatic.net/development/rakuraku/sample/8bf2c8ed-a59f-4755-83c2-df5336ca7628.js', 'rakuraku_tag');
 
-    noscript
-      iframe[src='https://www.googletagmanager.com/ns.html?id=GTM-5SQJR4' height='0' width='0' style='display:none;visibility:hidden']
+      rakuraku_tag({
+        event: "ViewContent",
+        hoge: 'huga'
+      });
 
-  .section
-    .container
-      .center
-        = link_to('フィードフォース ボドゲ部に遊びにきませんか？', page_path('about'))
-  footer.page-footer.light-green.lighten-3
-    .container
-      .row
-        .col
-          a.waves-effect.waves-light.btn-floating.light-green[href='https://twitter.com/ff_boardgame' target='_brank']
-            = fa_icon('twitter')
-          | &nbsp;
-          a.waves-effect.waves-light.btn-floating.light-green[href='https://www.facebook.com/yushima.bg/' target='_brank']
-            = fa_icon('facebook')
-    .footer-copyright
+    .section
+      .container
+        .center
+          = link_to('フィードフォース ボドゲ部に遊びにきませんか？', page_path('about'))
+    footer.page-footer.light-green.lighten-3
       .container
         .row
-          .col.s12.m12.l10
-            | Feedforce Boardgame Club
-          .col.s12.m12.l2
-            - if signed_in?
-              = link_to('Logout', logout_path, class: 'white-text')
-            - else
-              = link_to('Login', login_url(current_page: request.original_fullpath), class: 'white-text')
+          .col
+            a.waves-effect.waves-light.btn-floating.light-green[href='https://twitter.com/ff_boardgame' target='_brank']
+              = fa_icon('twitter')
+            | &nbsp;
+            a.waves-effect.waves-light.btn-floating.light-green[href='https://www.facebook.com/yushima.bg/' target='_brank']
+              = fa_icon('facebook')
+      .footer-copyright
+        .container
+          .row
+            .col.s12.m12.l10
+              | Feedforce Boardgame Club
+            .col.s12.m12.l2
+              - if signed_in?
+                = link_to('Logout', logout_path, class: 'white-text')
+              - else
+                = link_to('Login', login_url(current_page: request.original_fullpath), class: 'white-text')
 
