@@ -2,6 +2,8 @@
   .card.white.medium
     .card-content
       span.card-title = show_link
+      - if detail
+        span.left-margin.grey-text.text-darken-1 = detail
       .valign-wrapper
         .row.valign
           - images.each do |image|

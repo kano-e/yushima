@@ -7,6 +7,8 @@
       .card-stacked
         .card-content
           h1 = day
+          - if detail
+            p.grey-text.text-darken-1 = detail
         .card-action
           - games.each do |game|
             = link_to game.title_ja, game

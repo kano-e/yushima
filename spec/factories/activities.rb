@@ -10,6 +10,7 @@
 # **`created_at`**  | `datetime`         | `not null`
 # **`updated_at`**  | `datetime`         | `not null`
 # **`day`**         | `date`             | `not null`
+# **`detail`**      | `string`           |
 #
 # ### Indexes
 #
