@@ -31,6 +31,7 @@ class ActivityComment::Cell < Cell::ViewModel
 
   def meta_description
     text = "#{activity.day}の活動"
+    text += " #{activity.detail}" if activity.detail
     if game
       text += " #{game.title_ja}"
     end
