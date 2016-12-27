@@ -7,7 +7,10 @@ class Activity::Create < Trailblazer::Operation
 
   contract do
     property :day, validates: { presence: true }
+    property :detail
+
     validates_uniqueness_of :day
+    validates :detail, length: { maximum: 100 }
   end
 
   def process(params)

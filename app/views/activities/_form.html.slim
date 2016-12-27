@@ -11,7 +11,13 @@
 = form_for @model do |f|
   .row
     .col.s12.m12.l12.input-field
+      = f.label :day
       = f.date_field :day, class: 'datepicker'
+
+  .row
+    .col.s12.m12.l12.input-field
+      = f.label :detail, 'Comment'
+      = f.text_area :detail, class: 'materialize-textarea', length: 100
 
   .row
     .col.s12.m12.l12
