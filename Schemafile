@@ -14,6 +14,7 @@ create_table "activities", force: :cascade do |t|
   t.datetime "created_at", null: false
   t.datetime "updated_at", null: false
   t.date     "day",        null: false
+  t.string   "detail"
   t.index ["day"], name: "index_activities_on_day", unique: true, using: :btree
 end
 
