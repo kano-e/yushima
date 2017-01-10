@@ -48,7 +48,7 @@ class ActivityComment::Cell < Cell::ViewModel
   end
 
   def og_url_tag
-    og_tag(:url, activity_activity_comment_url(model, activity_id: activity.id))
+    og_tag(:url, activity_activity_comment_url(model, activity_day: activity.day))
   end
 
   def og_description_tag
@@ -124,6 +124,6 @@ class ActivityComment::Cell < Cell::ViewModel
   end
 
   def show_link(text = nil)
-    link_to text || 'Show', activity_activity_comment_path(model, activity_id: activity.id)
+    link_to text || 'Show', activity_activity_comment_path(model, activity_day: activity.day)
   end
 end

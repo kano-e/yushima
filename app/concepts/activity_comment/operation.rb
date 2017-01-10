@@ -28,11 +28,11 @@ end
 
 class ActivityComment::Create < ActivityComment::OperationBase
   def model!(params)
-    case params[:controller]
-    when 'activities'
-      Activity.find(params[:id]).activity_comments.build
-    else
-      Activity.find(params[:activity_id]).activity_comments.build
+    day = params[:activity_day] || params[:day]
+    begin
+      Activity.find_by(day: day).activity_comments.build
+    rescue ActiveRecord::StatementInvalid
+      Activity.find(day).activity_comments.build
     end
   end
 

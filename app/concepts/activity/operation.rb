@@ -23,6 +23,13 @@ end
 
 class Activity::Update < Activity::Create
   action :update
+
+  def model!(params)
+    day = params[:day] || params[:activity_day]
+    Activity.find_by_day(day)
+  rescue ActiveRecord::StatementInvalid
+    Activity.find(day)
+  end
 end
 
 class Activity::Destroy < Trailblazer::Operation
