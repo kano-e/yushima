@@ -3,7 +3,10 @@ class ActivitiesController < ApplicationController
 
   # GET /activities
   def index
-    @activities = Activity.all.order(day: :desc).includes(activity_comments: :game)
+    today = Time.current.to_date
+    @activities = Activity.all.
+      where(day: today.beginning_of_month..today.end_of_month).
+      order(day: :desc).includes(activity_comments: :game)
     @activity_policy = Activity::Policy.new(current_user, nil)
     set_content_ids
   end

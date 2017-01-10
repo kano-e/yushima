@@ -41,6 +41,10 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new', as: 'login'
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
+  scope :activities do
+    resources :archives, param: :year_month
+  end
+
   resources :activities, param: :day do
     resources :activity_comments
   end
