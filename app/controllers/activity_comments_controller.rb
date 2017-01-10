@@ -9,7 +9,7 @@ class ActivityCommentsController < ApplicationController
 
   # GET /activity_comments/1
   def show
-    @activity = Activity.find(params[:activity_id])
+    @activity = Activity::Update.present(params).model
     present ActivityComment::Update
     @activity_comments = @activity.activity_comments.where.not(id: @model.id).order(id: :asc).to_a
     comment_counts = @activity_comments.count
