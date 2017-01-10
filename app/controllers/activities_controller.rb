@@ -11,6 +11,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/1
   def show
     present Activity::Update
+    redirect_to_day_url && return
     @activity_comment_form = ActivityComment::Create.present(params)
     @activity_comment_policy = ActivityComment::Policy.new(current_user, @activity_comment_form.model)
     set_item_id
@@ -58,5 +59,10 @@ class ActivitiesController < ApplicationController
   def set_item_id
     set_content_ids(*@model.comments.map { |c| "activity_comment_#{c.id}" })
     record_event_item_ids
+  end
+
+  def redirect_to_day_url
+    return if /\d{4}-\d{2}-\d{2}/ =~ params[:day]
+    redirect_to activity_path(day: @model.day)
   end
 end

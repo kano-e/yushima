@@ -10,6 +10,7 @@ class ActivityCommentsController < ApplicationController
   # GET /activity_comments/1
   def show
     @activity = Activity::Update.present(params).model
+    redirect_to_day_url
     present ActivityComment::Update
     @activity_comments = @activity.activity_comments.where.not(id: @model.id).order(id: :asc).to_a
     comment_counts = @activity_comments.count
@@ -61,5 +62,10 @@ class ActivityCommentsController < ApplicationController
   def set_item_id
     set_content_ids("activity_comment_#{@model.id}")
     record_event_item_ids
+  end
+
+  def redirect_to_day_url
+    return if /\d{4}-\d{2}-\d{2}/ =~ params[:activity_day]
+    redirect_to activity_activity_comment_path(activity_day: @activity.day, id: params[:id])
   end
 end

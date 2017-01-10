@@ -25,9 +25,10 @@ class Activity::Update < Activity::Create
   action :update
 
   def model!(params)
-    Activity.find_by_day(params[:day] || params[:activity_day])
+    day = params[:day] || params[:activity_day]
+    Activity.find_by_day(day)
   rescue ActiveRecord::StatementInvalid
-    Activity.find(params[:day])
+    Activity.find(day)
   end
 end
 

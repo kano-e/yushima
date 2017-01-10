@@ -48,7 +48,7 @@ class Activity::Cell < Cell::ViewModel
   end
 
   def og_url_tag
-    og_tag(:url, activity_url(@model))
+    og_tag(:url, activity_url(day: @model.day))
   end
 
   def og_description_tag
@@ -65,7 +65,7 @@ class Activity::Cell < Cell::ViewModel
   end
 
   def tw_url_tag
-    tw_tag(:url, activity_url(@model))
+    tw_tag(:url, activity_url(day: @model.day))
   end
 
   def tw_description_tag
