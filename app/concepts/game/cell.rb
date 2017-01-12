@@ -12,6 +12,7 @@ class Game::Cell < Cell::ViewModel
   property :max_minutes
   property :photo
   property :comments
+  property :at_feedforce?
 
   def index
     render :index
@@ -111,6 +112,16 @@ class Game::Cell < Cell::ViewModel
 
   def exists_players_or_time?
     min_players || max_players || min_minutes || max_minutes
+  end
+
+  def at_feedforce
+    return unless model.at_feedforce?
+
+    content_tag(:p, class: 'light-green-text text-lighten-1') do
+      content_tag(:small) do
+        fa_icon('at') + 'フィードフォース ボドゲ棚'
+      end
+    end
   end
 
   def number_of_players

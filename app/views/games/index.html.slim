@@ -12,6 +12,10 @@ nav
 .section
   .container
     .row
+      .col
+        = link_to '> フィードフォース ボドゲ棚にあるものだけ', shelf_path
+  .container
+    .row
       = concept('game/cell', collection: @games).(:index)
 
 - content_for :head do

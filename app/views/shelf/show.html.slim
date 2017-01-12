@@ -1,0 +1,16 @@
+nav
+  .nav-wrapper
+    .container
+      = link_to 'Games', games_path, class: 'breadcrumb'
+      span.breadcrumb フィードフォース ボドゲ棚
+
+.section.no-pad-bot
+  .container
+    - if @game_policy.create?
+      .row.right-align
+        = link_to 'New Game', new_game_path, class: 'btn-flat'
+
+.section
+  .container
+    .row
+      = concept('game/cell', collection: @games).(:index)

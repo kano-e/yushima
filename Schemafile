@@ -34,16 +34,17 @@ create_table "activity_comments", force: :cascade do |t|
 end
 
 create_table "games", force: :cascade do |t|
-  t.datetime "created_at",  null: false
-  t.datetime "updated_at",  null: false
-  t.string   "title_ja",    null: false
+  t.datetime "created_at",                   null: false
+  t.datetime "updated_at",                   null: false
+  t.string   "title_ja",                     null: false
   t.string   "title_en"
   t.integer  "min_players"
   t.integer  "max_players"
   t.integer  "min_minutes"
   t.integer  "max_minutes"
   t.string   "photo"
-  t.string   "public_str",  null: false
+  t.string   "public_str",                   null: false
+  t.boolean  "at_feedforce", default: false, null: false
   t.index ["public_str"], name: "index_games_on_public_str", unique: true, using: :btree
   t.index ["title_en"], name: "index_games_on_title_en", using: :btree
 end

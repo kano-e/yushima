@@ -39,6 +39,7 @@ class Game::Create < Trailblazer::Operation
           greater_than_or_equal_to: 1,
         },
       }
+    property :at_feedforce
   end
 
   def process(params)
