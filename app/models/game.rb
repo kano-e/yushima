@@ -34,6 +34,9 @@ class Game < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
+  scope :order_by_title, -> { order(title_en: :asc) }
+  scope :at_feedforce, -> { where(at_feedforce: true) }
+
   def comments
     @comments ||= activity_comments.includes(:activity, :user).order(id: :asc).all
   end

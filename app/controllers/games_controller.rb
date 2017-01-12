@@ -3,7 +3,7 @@ class GamesController < ApplicationController
 
   # GET /games
   def index
-    @games = Game.all.order(title_en: :asc)
+    @games = Game.all.order_by_title
     @game_policy = Game::Policy.new(current_user, nil)
     set_content_ids
   end

@@ -12,6 +12,10 @@ nav
 .section
   .container
     .row
+      .col
+        = link_to 'feedforceのボドゲ棚にあるもので絞り込む', shelf_path
+  .container
+    .row
       = concept('game/cell', collection: @games).(:index)
 
 - content_for :head do

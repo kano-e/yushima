@@ -45,6 +45,8 @@ Rails.application.routes.draw do
     resources :activity_comments
   end
 
+  get '/shelf', to: 'shelf#show', as: 'shelf'
+
   resources :games
 
   resources :pages, only: [:show]
