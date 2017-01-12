@@ -33,7 +33,7 @@ class ActivityCommentsController < ApplicationController
   # POST /activity_comments
   def create
     run ActivityComment::Create do |op|
-      return redirect_to(activity_path(params[:activity_id], anchor: 'activity-comment-form'), notice: 'Activity was successfully created.')
+      return redirect_to(activity_path(params[:activity_day], anchor: 'activity-comment-form'), notice: 'Activity was successfully created.')
     end
 
     render :new
@@ -42,7 +42,7 @@ class ActivityCommentsController < ApplicationController
   # PATCH/PUT /activity_comments/1
   def update
     run ActivityComment::Update do |op|
-      return redirect_to(activity_path(params[:activity_id], anchor: 'activity-comment-form'), notice: 'Activity was successfully updated.')
+      return redirect_to(activity_path(params[:activity_day], anchor: 'activity-comment-form'), notice: 'Activity was successfully created.')
     end
 
     render :edit
