@@ -119,7 +119,7 @@ class Game::Cell < Cell::ViewModel
 
     content_tag(:p, class: 'light-green-text text-lighten-1') do
       content_tag(:small) do
-        'in feedforce\'s shelf'
+        fa_icon('at') + 'フィードフォース ボドゲ棚'
       end
     end
   end
