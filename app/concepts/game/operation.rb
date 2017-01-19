@@ -1,8 +1,8 @@
-class Game::Create < Trailblazer::Operation
+class Game::Show < Trailblazer::Operation
   include Model
   include Trailblazer::Operation::Policy
 
-  model Game, :create
+  model Game, :update
   policy Game::Policy, :show?
 
   contract do
@@ -43,8 +43,15 @@ class Game::Create < Trailblazer::Operation
   end
 
   def process(params)
-    return invalid! unless policy.create?
+    raise Trailblazer::NoAuthorizedError
+  end
+end
 
+class Game::Create < Game::Show
+  action :create
+  policy Game::Policy, :create?
+
+  def process(params)
     validate(params[:game]) do |form|
       model.public_str ||= SecureRandom.urlsafe_base64
       form.save

@@ -10,7 +10,7 @@ class GamesController < ApplicationController
 
   # GET /games/1
   def show
-    present Game::Update
+    present Game::Show
     @activity_comments = @model.activity_comments.includes(:activity).order(id: :desc).limit(20).all
     set_item_id
   end
