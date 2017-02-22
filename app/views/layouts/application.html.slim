@@ -103,20 +103,22 @@ html
     footer.page-footer.light-green.lighten-3
       .container
         .row
-          .col
+          .col.s12.m12.l10
             a.waves-effect.waves-light.btn-floating.light-green[href='https://twitter.com/ff_boardgame' target='_brank']
               = fa_icon('twitter')
             | &nbsp;
             a.waves-effect.waves-light.btn-floating.light-green[href='https://www.facebook.com/yushima.bg/' target='_brank']
               = fa_icon('facebook')
+          .col.s12.m12.l2
+            - if signed_in?
+              = link_to('Logout', logout_path, class: 'white-text')
+            - else
+              = link_to('Login', login_url(current_page: request.original_fullpath), class: 'white-text')
       .footer-copyright
         .container
           .row
-            .col.s12.m12.l10
+            .col.s12.m12.l4
               | Feedforce Boardgame Club
-            .col.s12.m12.l2
-              - if signed_in?
-                = link_to('Logout', logout_path, class: 'white-text')
-              - else
-                = link_to('Login', login_url(current_page: request.original_fullpath), class: 'white-text')
+            .col.s12.m12.l8
+              = link_to('プライバシーポリシー', page_path('privacy'), class: 'white-text')
 
