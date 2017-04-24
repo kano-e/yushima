@@ -15,6 +15,7 @@
 # **`detail`**       | `string`           |
 # **`public_str`**   | `string`           | `not null`
 # **`user_id`**      | `string`           |
+# **`public`**       | `boolean`          | `default(TRUE), not null`
 #
 # ### Indexes
 #
