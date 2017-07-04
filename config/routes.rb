@@ -21,6 +21,7 @@
 #                                PATCH  /activities/:day(.:format)                                     activities#update
 #                                PUT    /activities/:day(.:format)                                     activities#update
 #                                DELETE /activities/:day(.:format)                                     activities#destroy
+#                          shelf GET    /shelf(.:format)                                               shelf#show
 #                          games GET    /games(.:format)                                               games#index
 #                                POST   /games(.:format)                                               games#create
 #                       new_game GET    /games/new(.:format)                                           games#new
